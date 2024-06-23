@@ -1,0 +1,262 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjbe75eis8tu6"]
+
+[ext_resource type="Script" path="res://Scripts/UI/SettingsPanel.gd" id="1_4i8vj"]
+[ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="3_2qins"]
+[ext_resource type="Texture2D" uid="uid://cplgika3kesri" path="res://UI/back_button.png" id="3_hs58d"]
+[ext_resource type="FontFile" uid="uid://d2jfq3itdwpdu" path="res://Assets/Fonts/Tektur/Tektur-Bold.ttf" id="3_ri2fr"]
+[ext_resource type="Texture2D" uid="uid://ccnlq2hm3wbsa" path="res://UI/back_button_disabled.png" id="4_ejs0m"]
+[ext_resource type="AudioStream" uid="uid://dv1glc3wxx4ry" path="res://Sounds/Interact/impactMetal_light_001.ogg" id="4_n8hvh"]
+
+[node name="Settings" type="CanvasLayer"]
+
+[node name="SettingsPanel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.561
+anchor_bottom = 1.0
+offset_right = -0.120117
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4i8vj")
+
+[node name="Back" type="TextureButton" parent="SettingsPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 152.0
+offset_bottom = 176.0
+theme = ExtResource("3_2qins")
+texture_normal = ExtResource("3_hs58d")
+texture_pressed = ExtResource("3_hs58d")
+texture_hover = ExtResource("3_hs58d")
+texture_disabled = ExtResource("4_ejs0m")
+texture_focused = ExtResource("3_hs58d")
+
+[node name="Title" type="Label" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.104
+anchor_right = 0.5
+anchor_bottom = 0.104
+offset_left = -80.0
+offset_top = -32.32
+offset_right = 82.0
+offset_bottom = 31.68
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ri2fr")
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.178
+anchor_right = 0.967
+anchor_bottom = 0.948
+offset_left = 0.639999
+offset_top = -0.240005
+offset_right = -0.640137
+offset_bottom = 0.159912
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel/ScrollContainer"]
+custom_minimum_size = Vector2(768, 768)
+layout_mode = 2
+
+[node name="LangLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 48
+text = "LANGUAGE"
+
+[node name="LanguageWarning" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "LANGUAGE_WARNING"
+
+[node name="LanguageSet" type="OptionButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+item_count = 2
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Russian"
+popup/item_1/id = 1
+
+[node name="GraphicsLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "GRAPHICS"
+
+[node name="ResolutionLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "RESOLUTION"
+
+[node name="WindowSizeSet" type="OptionButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+item_count = 6
+selected = 0
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1366x768"
+popup/item_2/id = 2
+popup/item_3/text = "1280x720"
+popup/item_3/id = 3
+popup/item_4/text = "1024x768"
+popup/item_4/id = 4
+popup/item_5/text = "800x600"
+popup/item_5/id = 5
+
+[node name="FullscreenSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+text = "FULLSCREEN_SET"
+
+[node name="EnvGraphicsLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "GRAPHICS_DEFAULT_ENV"
+
+[node name="DynamicGISet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+disabled = true
+button_pressed = true
+text = "DYNAMIC_GI_SET"
+
+[node name="SSAOSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+disabled = true
+button_pressed = true
+text = "SSAO"
+
+[node name="SSILSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+disabled = true
+button_pressed = true
+text = "SSIL"
+
+[node name="SSRSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "SSR"
+
+[node name="FogSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "FOG_SET"
+
+[node name="GlowSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+text = "GLOW"
+
+[node name="SoundsLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "SOUNDS"
+
+[node name="MusicLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "MUSIC_SET"
+
+[node name="MusicSet" type="HSlider" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="SoundLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SOUND_SET"
+
+[node name="SoundSet" type="HSlider" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="InputLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "INPUT"
+
+[node name="MouseSens" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "SENS_SET"
+
+[node name="MouseSensSet" type="HSlider" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+min_value = 0.001
+max_value = 5.0
+step = 0.001
+value = 2.0
+
+[node name="SoundTest" type="AudioStreamPlayer" parent="SettingsPanel"]
+stream = ExtResource("4_n8hvh")
+
+[node name="Label" type="Label" parent="SettingsPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -311.0
+offset_top = -47.0
+offset_bottom = 54.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Beginning with 0.6.1,
+the settings are auto-saving,
+when you toggle buttons.
+As for now, \"Save\" button is deprecated."
+
+[connection signal="pressed" from="SettingsPanel/Back" to="SettingsPanel" method="_on_back_pressed"]
+[connection signal="item_selected" from="SettingsPanel/ScrollContainer/VBoxContainer/LanguageSet" to="SettingsPanel" method="_on_language_set_item_selected"]
+[connection signal="item_selected" from="SettingsPanel/ScrollContainer/VBoxContainer/WindowSizeSet" to="SettingsPanel" method="_on_window_size_set_item_selected"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/FullscreenSet" to="SettingsPanel" method="_on_fullscreen_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/DynamicGISet" to="SettingsPanel" method="_on_dynamic_gi_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/SSAOSet" to="SettingsPanel" method="_on_ssao_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/SSILSet" to="SettingsPanel" method="_on_ssil_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/SSRSet" to="SettingsPanel" method="_on_ssr_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/GlowSet" to="SettingsPanel" method="_on_glow_set_toggled"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/VBoxContainer/MusicSet" to="SettingsPanel" method="_on_music_set_drag_ended"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/VBoxContainer/SoundSet" to="SettingsPanel" method="_on_sound_set_drag_ended"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/VBoxContainer/MouseSensSet" to="SettingsPanel" method="_on_mouse_sens_set_drag_ended"]

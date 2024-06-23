@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsgw3q3dkqtyv"]
+
+[ext_resource type="Script" path="res://Scripts/UI/ModButton.cs" id="1_2niv5"]
+[ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="1_n1hex"]
+
+[node name="ModButton" type="Button"]
+custom_minimum_size = Vector2(128, 32)
+offset_right = 48.0
+offset_bottom = 24.0
+theme = ExtResource("1_n1hex")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("1_2niv5")
+
+[connection signal="pressed" from="." to="." method="OnPressed"]

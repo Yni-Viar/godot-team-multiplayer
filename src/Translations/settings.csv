@@ -1,0 +1,17 @@
+keys,en
+SETTINGS,Settings
+LANGUAGE,Language:
+GRAPHICS,Graphics:
+SOUNDS,Sounds:
+INPUT,Input:
+MUSIC_SET,Music volume
+SOUND_SET,Sound volume (affects ALL sounds)
+SENS_SET,Mouse sensivity
+DYNAMIC_GI_SET,Dynamic GI
+FOG_SET,"Volumetric fog toggle\n(if disabled, then standard fog appears instead of volumetric)"
+FULLSCREEN_SET,Fullscreen
+GRAPHICS_DEFAULT_ENV,Default environment graphics
+LANGUAGE_WARNING," ""The in-game text may be not translated if there is no translation file coming with the game"""
+GLOW,Glow effect
+RENDERING_DEVICE,Graphic driver (restart required)
+RESOLUTION,Screen resolution

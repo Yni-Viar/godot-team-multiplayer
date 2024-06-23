@@ -1,0 +1,543 @@
+[gd_scene load_steps=26 format=3 uid="uid://mu7j26by23js"]
+
+[ext_resource type="Script" path="res://Scripts/Multiplayer/FacilityManager.gd" id="1_crbgh"]
+[ext_resource type="Resource" uid="uid://dexygxjm8ki08" path="res://Scripts/GameData/GameData.tres" id="2_m6y5b"]
+[ext_resource type="FontFile" uid="uid://opo2t8tyqcfa" path="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf" id="5_strxu"]
+[ext_resource type="Environment" uid="uid://cpjkvy5s2l8ae" path="res://DefaultGraphics.tres" id="5_u1dtw"]
+[ext_resource type="Texture2D" uid="uid://bmw4fxmnmwhov" path="res://Assets/HUD/arrow.png" id="7_bwdaw"]
+[ext_resource type="PackedScene" uid="uid://dxk8akb87bv4u" path="res://Assets/Models/startroom.tscn" id="8_1kvjl"]
+[ext_resource type="Script" path="res://Scripts/UI/PlayerUI.gd" id="8_7mmlb"]
+[ext_resource type="PackedScene" uid="uid://ct11xlg8m624b" path="res://Assets/Models/office.tscn" id="8_wxtuc"]
+[ext_resource type="Texture2D" uid="uid://di4n3rx3yssbr" path="res://Assets/HUD/healthbar_unfilled.png" id="9_0hc6d"]
+[ext_resource type="Texture2D" uid="uid://bvq1xok1sqfjb" path="res://Assets/HUD/healthbar_filled.png" id="10_itug4"]
+[ext_resource type="FontFile" uid="uid://d2jfq3itdwpdu" path="res://Assets/Fonts/Tektur/Tektur-Bold.ttf" id="11_1xteb"]
+[ext_resource type="Script" path="res://Scripts/Unnecessary/FPSCounter.gd" id="11_vy51m"]
+[ext_resource type="FontFile" uid="uid://cimfjaj14234d" path="res://Assets/Fonts/Tektur/Tektur-Medium.ttf" id="12_118v5"]
+[ext_resource type="Texture2D" uid="uid://dj66rmlusn18r" path="res://Assets/HUD/healthbar.png" id="15_5ah0v"]
+[ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="15_g2wd3"]
+[ext_resource type="Script" path="res://Scripts/Unnecessary/GameoverPit.gd" id="19_4u3wc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4g4w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_wnm84"]
+resource_name = "forceclass"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClassInfo:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClassInfo:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-128, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -128, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.6, 3.9, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClassDescription:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ClassDescription:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-424, -0.25, 0, 0.25, 0, -424, -0.25, 0, 0.25, 0, 168, -0.25, 0, 0.25, 0, 168, -0.25, 0, 0.25, 0, -424, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.9, 4.1, 5)
+}
+
+[sub_resource type="Animation" id="Animation_0y8ye"]
+resource_name = "roundend"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameEnd:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameEnd:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-328, -0.25, 0, 0.25, 0, 96, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_icbbs"]
+_data = {
+"forceclass": SubResource("Animation_wnm84"),
+"roundend": SubResource("Animation_0y8ye")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wvqa"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="Animation" id="Animation_aegjm"]
+resource_name = "music_change"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1eqc"]
+_data = {
+"music_change": SubResource("Animation_aegjm")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_pw38j"]
+properties/0/path = NodePath("MapGenLcz:seed")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+properties/1/path = NodePath("MapGenHcz:seed")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath("MapGenRz:seed")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:playersList")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+properties/4/path = NodePath(".:isRoundStarted")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath(".:tickets")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+properties/6/path = NodePath(".:targets")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath(".:maxSpawnableObjects")
+properties/7/spawn = true
+properties/7/replication_mode = 2
+properties/8/path = NodePath(".:omegaWarheadKeycode")
+properties/8/spawn = true
+properties/8/replication_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7svji"]
+size = Vector3(2508.41, 33.7658, 1977.69)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_crbgh")
+game_data = ExtResource("2_m6y5b")
+music_to_play = Array[String](["res://Sounds/Music/Zen.ogg"])
+player_prefab_path = "res://FPSController/PlayerScene.tscn"
+
+[node name="PlayerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_7mmlb")
+
+[node name="Cursor" type="TextureRect" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_bwdaw")
+
+[node name="PreRoundStartPanel" type="Panel" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -124.0
+offset_right = 232.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x4g4w")
+
+[node name="PreRoundStart" type="VBoxContainer" parent="PlayerUI/PreRoundStartPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -221.5
+offset_top = -21.0
+offset_right = 221.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Welcome" type="Label" parent="PlayerUI/PreRoundStartPanel/PreRoundStart"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_font_sizes/font_size = 32
+text = "The round is starting soon..."
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="PlayerUI/PreRoundStartPanel/PreRoundStart"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+
+[node name="Welcome2" type="Label" parent="PlayerUI/PreRoundStartPanel/PreRoundStart"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_font_sizes/font_size = 24
+text = "players connected."
+horizontal_alignment = 1
+
+[node name="ClassInfo" type="Label" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = -128.0
+offset_right = 704.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClassDescription" type="Label" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = -424.0
+offset_right = 704.0
+offset_bottom = -128.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="GameEnd" type="RichTextLabel" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = -328.0
+offset_right = 896.0
+offset_bottom = -192.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("12_118v5")
+theme_override_fonts/bold_font = ExtResource("11_1xteb")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+
+[node name="HealthBarIcon" type="TextureRect" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.959
+anchor_right = 0.015
+anchor_bottom = 0.959
+offset_left = -12.8
+offset_top = -11.7201
+offset_right = 11.2
+offset_bottom = 12.2799
+grow_vertical = 0
+texture = ExtResource("15_5ah0v")
+
+[node name="HealthBar" type="TextureProgressBar" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 0.941
+anchor_right = 0.25
+anchor_bottom = 0.985
+offset_left = 0.32
+offset_top = -0.280029
+offset_right = -6.10352e-05
+offset_bottom = 0.199951
+grow_vertical = 0
+allow_greater = true
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_under = ExtResource("9_0hc6d")
+texture_progress = ExtResource("10_itug4")
+
+[node name="Counter" type="Label" parent="PlayerUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 26.0
+text = "FPS"
+script = ExtResource("11_vy51m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerUI"]
+libraries = {
+"": SubResource("AnimationLibrary_icbbs")
+}
+
+[node name="AdminConsole" type="Panel" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -130.0
+offset_right = 344.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3wvqa")
+
+[node name="Label" type="Label" parent="PlayerUI/AdminConsole"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_font_sizes/font_size = 32
+text = "Admin panel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PlayerUI/AdminConsole"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.338
+anchor_right = 0.5
+anchor_bottom = 0.338
+offset_left = -104.5
+offset_top = -17.88
+offset_right = 104.5
+offset_bottom = 18.12
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 16
+text = "Please, enter the password!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Password" type="LineEdit" parent="PlayerUI/AdminConsole"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -12.0
+offset_right = 216.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_g2wd3")
+
+[node name="ContinueBtn" type="Button" parent="PlayerUI/AdminConsole"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.79
+anchor_right = 0.5
+anchor_bottom = 0.79
+offset_left = -128.0
+offset_top = -14.94
+offset_right = 128.0
+offset_bottom = 36.06
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("15_g2wd3")
+text = "OK"
+
+[node name="PlayerListPanel" type="Panel" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.0
+offset_top = -448.0
+offset_right = 516.0
+offset_bottom = 448.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3wvqa")
+
+[node name="PlayerList" type="VBoxContainer" parent="PlayerUI/PlayerListPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -372.0
+offset_right = 488.0
+offset_bottom = 428.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerUI/PlayerListPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_font_sizes/font_size = 32
+text = "Player list"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseMenu" type="Control" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PlayerUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.237
+anchor_bottom = 1.0
+offset_right = 0.959961
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="PlayerUI/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.491
+anchor_top = 0.089
+anchor_right = 0.491
+anchor_bottom = 0.089
+offset_left = -191.896
+offset_top = -32.12
+offset_right = 192.104
+offset_bottom = 31.88
+theme = ExtResource("15_g2wd3")
+theme_override_font_sizes/font_size = 24
+text = "EXIT"
+
+[node name="Items" type="Node" parent="."]
+
+[node name="MapObjects" type="Node" parent="."]
+
+[node name="Ragdolls" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Decals" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_u1dtw")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y1eqc")
+}
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://FPSController/PlayerScene.tscn")
+spawn_path = NodePath("..")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_pw38j")
+
+[node name="StartRoom" parent="." instance=ExtResource("8_1kvjl")]
+
+[node name="Office" parent="." instance=ExtResource("8_wxtuc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.0365, 0)
+
+[node name="Gameover" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("19_4u3wc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Gameover"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -678.565, 54.1343)
+shape = SubResource("BoxShape3D_7svji")
+
+[node name="Label3D" type="Label3D" parent="."]
+
+[connection signal="pressed" from="PlayerUI/AdminConsole/ContinueBtn" to="PlayerUI/AdminConsole" method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="PlayerUI/PauseMenu/Panel/ExitButton" to="PlayerUI" method="_on_exit_button_pressed"]
+[connection signal="body_entered" from="Gameover" to="Gameover" method="_on_body_entered"]

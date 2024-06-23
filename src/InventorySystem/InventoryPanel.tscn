@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://de8sgghqvldw3"]
+
+[ext_resource type="Script" path="res://InventorySystem/InventoryManagement.gd" id="1_yykdm"]
+[ext_resource type="Texture2D" uid="uid://ccs40bogcipra" path="res://InventorySystem/InventoryItemLarge.png" id="3_uyubu"]
+[ext_resource type="Script" path="res://InventorySystem/InventoryDock.gd" id="4_2xcnr"]
+[ext_resource type="Script" path="res://InventorySystem/InventoryPanel.gd" id="4_ss8mb"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yykdm")
+tile_size = Vector2(96, 96)
+
+[node name="InventoryPanel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.178
+anchor_right = 0.5
+anchor_bottom = 0.178
+offset_left = 192.0
+offset_top = -96.24
+offset_right = 576.0
+offset_bottom = 287.76
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uyubu")
+script = ExtResource("4_ss8mb")
+
+[node name="DockPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.711
+anchor_right = 0.7
+anchor_bottom = 0.711
+offset_left = -192.0
+offset_top = -191.88
+offset_right = 192.0
+offset_bottom = 192.12
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_2xcnr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.462
+anchor_right = 0.7
+anchor_bottom = 0.462
+offset_left = -64.0001
+offset_top = -10.96
+offset_right = 64.9999
+offset_bottom = 12.04
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your inventory"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.515
+anchor_right = 0.7
+anchor_bottom = 0.515
+offset_left = -64.0001
+offset_top = -12.2001
+offset_right = 63.9999
+offset_bottom = 11.7999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loot"
+horizontal_alignment = 1

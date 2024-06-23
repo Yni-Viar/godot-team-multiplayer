@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BaseClass" load_steps=2 format=3 uid="uid://f2kqasrj2c78"]
+
+[ext_resource type="Script" path="res://FPSController/PlayerClassResources/BaseClass.gd" id="1_uo4ie"]
+
+[resource]
+script = ExtResource("1_uo4ie")
+player_class_name = "Human"
+player_class_description = "Test class"
+spawn_points = Array[String](["Main/Game/Office/entityspawn"])
+player_model_source = "res://FPSController/PlayerClassPrefab/human.tscn"
+player_ragdoll_source = "res://FPSController/PlayerClassPrefabGameover/human_ragdoll.tscn"
+speed = 4.5
+jump = 4.5
+sprint_enabled = true
+move_sounds_enabled = true
+footstep_sounds = Array[String](["res://Sounds/Character/Human/Step/footstep_carpet_000.ogg", "res://Sounds/Character/Human/Step/footstep_carpet_001.ogg", "res://Sounds/Character/Human/Step/footstep_carpet_002.ogg", "res://Sounds/Character/Human/Step/footstep_carpet_003.ogg", "res://Sounds/Character/Human/Step/footstep_carpet_004.ogg"])
+sprint_sounds = Array[String](["res://Sounds/Character/Human/Step/footstep_concrete_000.ogg", "res://Sounds/Character/Human/Step/footstep_concrete_001.ogg", "res://Sounds/Character/Human/Step/footstep_concrete_002.ogg", "res://Sounds/Character/Human/Step/footstep_concrete_003.ogg", "res://Sounds/Character/Human/Step/footstep_concrete_004.ogg"])
+unique_type_id = -1
+health = Array[float]([100.0])
+custom_spawn = false
+custom_camera = false
+custom_shader = ""
+class_color = Color(0.552941, 0.8, 1, 0.752941)
+enable_inventory = false
+can_move = true

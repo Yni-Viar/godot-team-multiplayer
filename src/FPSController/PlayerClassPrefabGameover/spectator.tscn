@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bqutagr4mhmu2"]
+
+[node name="spectator" type="Node3D"]

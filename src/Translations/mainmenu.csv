@@ -1,0 +1,13 @@
+keys,en
+PLAY,Play
+SETTINGS,Settings
+CREDITS,Credits
+IPADDR,IP Address (client)
+PORT,Port
+MAXCLIENTS,Max clients (server)
+HOST,Host
+CONNECT,Connect
+PRERELEASE_WARN,"WARNING! This game/platform is in ALPHA stage of development.\nThis means, that the game has some incomplete, not-working and unstable features."
+PLAYER_NICK,"Please, set you nickname!"
+EXIT,Exit
+MODS,Select mods (host only)

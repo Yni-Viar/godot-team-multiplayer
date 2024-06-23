@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8fudm271fbss"]
+
+[ext_resource type="Script" path="res://FPSController/PlayerClassScript/SpectatorPlayerScript.gd" id="1_f11e7"]
+
+[node name="spectator" type="Node3D"]
+script = ExtResource("1_f11e7")

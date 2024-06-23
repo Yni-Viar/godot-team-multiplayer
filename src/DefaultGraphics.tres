@@ -1,0 +1,26 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cpjkvy5s2l8ae"]
+
+[ext_resource type="Texture2D" uid="uid://dep2kq78m8xy" path="res://Assets/Sky/EveningSkyHDRI018B_4K-TONEMAPPED.jpg" id="1_hnnxh"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5ys3a"]
+panorama = ExtResource("1_hnnxh")
+
+[sub_resource type="Sky" id="Sky_tt5t7"]
+sky_material = SubResource("PanoramaSkyMaterial_5ys3a")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_tt5t7")
+tonemap_mode = 2
+tonemap_white = 12.0
+sdfgi_use_occlusion = true
+sdfgi_cascades = 1
+sdfgi_min_cell_size = 1.10781
+sdfgi_cascade0_distance = 70.9
+sdfgi_max_distance = 141.8
+glow_bloom = 0.2
+glow_blend_mode = 0
+fog_enabled = true
+fog_aerial_perspective = 1.0
+fog_height = 1.25
+volumetric_fog_length = 32.0

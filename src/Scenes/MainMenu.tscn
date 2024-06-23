@@ -1,0 +1,465 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6010fhhdn46b"]
+
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu.gd" id="1_xwo58"]
+[ext_resource type="Texture2D" uid="uid://boboxmvoqy61t" path="res://Assets/Menu/MainMenuForeground.png" id="2_647vp"]
+[ext_resource type="Texture2D" uid="uid://bf4keik5l7nsf" path="res://icon_256.png" id="3_weqit"]
+[ext_resource type="FontFile" uid="uid://d2jfq3itdwpdu" path="res://Assets/Fonts/Tektur/Tektur-Bold.ttf" id="5_b7n5r"]
+[ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="5_gi3lh"]
+[ext_resource type="PackedScene" uid="uid://bjbe75eis8tu6" path="res://Scenes/Settings.tscn" id="6_0nqn5"]
+[ext_resource type="Script" path="res://Scripts/UI/DefaultPanel.gd" id="6_fme2w"]
+[ext_resource type="Texture2D" uid="uid://cplgika3kesri" path="res://UI/back_button.png" id="10_h2lxg"]
+[ext_resource type="Texture2D" uid="uid://ccnlq2hm3wbsa" path="res://UI/back_button_disabled.png" id="11_uc1g4"]
+[ext_resource type="AudioStream" uid="uid://bgwtl1p2867ak" path="res://Sounds/Music/EquatorialComplex.ogg" id="11_ybgjd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyayx"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xwo58")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Foreground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_647vp")
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -284.0
+offset_right = 334.0
+offset_bottom = -28.0
+grow_vertical = 0
+texture = ExtResource("3_weqit")
+
+[node name="PlayerName" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -344.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme = ExtResource("5_gi3lh")
+placeholder_text = "PLAYER_NICK"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.533
+anchor_top = 0.03
+anchor_right = 0.533
+anchor_bottom = 0.03
+offset_left = -575.36
+offset_top = -32.4
+offset_right = 576.64
+offset_bottom = 31.6
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.022
+anchor_right = 0.208
+anchor_bottom = 0.978
+offset_left = 0.959999
+offset_top = 0.239998
+offset_right = 0.639984
+offset_bottom = -0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_b7n5r")
+theme_override_font_sizes/font_size = 64
+text = "Team game
+template
+"
+
+[node name="Settings" type="Button" parent="Title"]
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 31
+text = "SETTINGS"
+
+[node name="Credits" type="Button" parent="Title"]
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 31
+text = "CREDITS"
+
+[node name="Exit" type="Button" parent="Title"]
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 31
+text = "EXIT"
+
+[node name="DefaultPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.238
+anchor_top = 0.067
+anchor_right = 0.968
+anchor_bottom = 0.913
+offset_left = 0.039978
+offset_top = -0.360001
+offset_right = 0.439941
+offset_bottom = -0.0400391
+script = ExtResource("6_fme2w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DefaultPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.025
+anchor_right = 0.98
+anchor_bottom = 0.858
+offset_left = -0.0399971
+offset_top = 0.150002
+offset_right = 0.0400391
+offset_bottom = -0.211975
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b]KNOWN ISSUES:[/b]
+- There may be freezes. Try to restart the game to fix this.
+- Support for old PCs (and maybe for Android) cannot be provided, due to some of the game mechanics are not available in Godot OpenGL. This should be fixed in Godot 4.3. [i]Waiting for Godot...[/i]
+- Connecting to ongoing game may be unstable.
+- Hold item animation on player model is missing.
+- Hand rigs and ragdolls are just... meh...
+
+
+[b]WARNING! Multiplayer mode is NOT production-ready![/b]"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DefaultPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -57.9999
+offset_right = 0.00012207
+offset_bottom = 6.10352e-05
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Host" type="Button" parent="DefaultPanel/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 24
+text = "HOST"
+
+[node name="IPAddress" type="LineEdit" parent="DefaultPanel/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "IPADDR"
+
+[node name="Port" type="LineEdit" parent="DefaultPanel/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "PORT"
+
+[node name="MaxClients" type="LineEdit" parent="DefaultPanel/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 24
+placeholder_text = "MAXCLIENTS"
+
+[node name="Connect" type="Button" parent="DefaultPanel/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme = ExtResource("5_gi3lh")
+theme_override_font_sizes/font_size = 24
+text = "CONNECT"
+
+[node name="DevWarning" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -634.5
+offset_top = -96.0
+offset_right = 634.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "PRERELEASE_WARN"
+horizontal_alignment = 1
+
+[node name="Settings" parent="." instance=ExtResource("6_0nqn5")]
+visible = false
+
+[node name="CreditsPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iyayx")
+
+[node name="CreditsBack" type="TextureButton" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.119
+anchor_right = 0.067
+anchor_bottom = 0.119
+offset_left = -64.64
+offset_top = -64.52
+offset_right = 63.36
+offset_bottom = 63.48
+texture_normal = ExtResource("10_h2lxg")
+texture_pressed = ExtResource("10_h2lxg")
+texture_hover = ExtResource("10_h2lxg")
+texture_disabled = ExtResource("11_uc1g4")
+texture_focused = ExtResource("10_h2lxg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -476.0
+offset_right = 640.0
+offset_bottom = 484.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/ScrollContainer"]
+layout_mode = 2
+
+[node name="CreditsMain" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b]Team Game Sample code is licensed mostly under MIT License (some code is licensed under CC0)[/b]
+
+
+"
+fit_content = true
+
+[node name="CreditsMain2" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[color=#84D9FF][i]Contributors:[/i]
+- Yni (Yni Viar, the Creator)[/color]
+
+
+"
+fit_content = true
+
+[node name="CreditsMain3" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b]Third-party data credits:[/b]"
+fit_content = true
+
+[node name="CreditsCode" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b]Code:[/b]"
+fit_content = true
+
+[node name="CreditsCode2" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[i]First person character (license - The Unlicense)[/i]
+
+- Originally made by [dzejpi](https://github.com/dzejpi/godot-3d-base-project),
+ then I (Yni) merged some code from elmarcoh's FPS script (also public domain),
+ and now I added some code.
+
+
+"
+fit_content = true
+
+[node name="CreditsCode3" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[i]Scalable inventory system (license - The Unlicense)[/i]
+
+- Created by hamburgear , edited by Yni.
+
+
+"
+fit_content = true
+
+[node name="CreditsCode4" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[i]Debug console (License - The Unlicense)[/i]
+
+- Made by USBashka
+
+"
+fit_content = true
+
+[node name="CreditsCode10" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[i]Recoil System (MIT License)
+
+- Copyright (c) 2024 AceSpectre
+
+"
+fit_content = true
+
+[node name="CreditsArt" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[b]Assets[/b]"
+fit_content = true
+
+[node name="CreditsArt1" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[i]Models[/i]
+
+- Charlotte - by Yni, made with MPFB2
+- SCP-173 model - Aruspice (model, textures), Shakles (rig, animation), PixelPuffin (concept art) (license - CC-BY-SA 3.0)
+- Parts of close icon - by Microsoft Corporation. (license - CC-BY 4.0)
+- Sci fi shotgun - made by Ed Eien No Janed, license CC-BY
+- Bossfight level, Electrobun boss, Elevator, Cable car models are made by Yni. License CC-BY.
+"
+fit_content = true
+
+[node name="CreditsArt2" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1234, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+text = "[i]Sounds and music[/i]
+- Robot vacuum cleaner.ogg by Eelke -- https://freesound.org/s/383372/ -- License: CC Attribution 4.0
+- Elevator.ogg - Kevin MacLeod (CC-BY 4.0)
+- Equatorial Complex - Kevin MacLeod (CC-BY 4.0)
+- Zen.ogg - Kevin MacLeod (CC-BY 4.0)
+- SCP-x3x - Kevin MacLeod (CC-BY 4.0)
+- Moon_begin, Moon_end and Moon - DEgITx (CC-BY 4.0)
+"
+fit_content = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ybgjd")
+bus = &"Music"
+
+[connection signal="pressed" from="Title/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Title/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Title/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="DefaultPanel/HBoxContainer/Host" to="DefaultPanel" method="_on_host_pressed"]
+[connection signal="text_changed" from="DefaultPanel/HBoxContainer/IPAddress" to="DefaultPanel" method="_on_ip_address_text_changed"]
+[connection signal="text_changed" from="DefaultPanel/HBoxContainer/Port" to="DefaultPanel" method="_on_port_text_changed"]
+[connection signal="text_changed" from="DefaultPanel/HBoxContainer/MaxClients" to="DefaultPanel" method="_on_max_clients_text_changed"]
+[connection signal="pressed" from="DefaultPanel/HBoxContainer/Connect" to="DefaultPanel" method="_on_connect_pressed"]
+[connection signal="pressed" from="CreditsPanel/CreditsBack" to="." method="_on_credits_back_pressed"]

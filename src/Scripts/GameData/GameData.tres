@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=5 format=3 uid="uid://dexygxjm8ki08"]
+
+[ext_resource type="Script" path="res://Scripts/GameData/GameData.gd" id="1_3oe34"]
+[ext_resource type="Resource" uid="uid://cohe4hksaldgl" path="res://FPSController/PlayerClassResources/Spectator.tres" id="1_q7cy1"]
+[ext_resource type="Resource" uid="uid://f2kqasrj2c78" path="res://FPSController/PlayerClassResources/Human.tres" id="2_66p5n"]
+[ext_resource type="Resource" uid="uid://djlq02i4dkpaw" path="res://InventorySystem/Items/SampleItem.tres" id="3_6lumy"]
+
+[resource]
+script = ExtResource("1_3oe34")
+classes = Array[Resource("res://FPSController/PlayerClassResources/BaseClass.gd")]([ExtResource("1_q7cy1"), ExtResource("2_66p5n")])
+items = Array[Resource("res://InventorySystem/Items/Item.gd")]([ExtResource("3_6lumy")])
+map_objects = Array[PackedScene]([])
+npcs = Array[PackedScene]([])

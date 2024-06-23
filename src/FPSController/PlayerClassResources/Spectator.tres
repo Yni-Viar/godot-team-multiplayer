@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BaseClass" load_steps=2 format=3 uid="uid://cohe4hksaldgl"]
+
+[ext_resource type="Script" path="res://FPSController/PlayerClassResources/BaseClass.gd" id="1_wx0qn"]
+
+[resource]
+script = ExtResource("1_wx0qn")
+player_class_name = "Spectator"
+player_class_description = "Just.. watch other players..."
+spawn_points = Array[String](["Main/Game/"])
+player_model_source = "res://FPSController/PlayerClassPrefab/spectator.tscn"
+player_ragdoll_source = "res://FPSController/PlayerClassPrefabGameover/spectator.tscn"
+speed = 2.0
+jump = 2.0
+sprint_enabled = false
+move_sounds_enabled = false
+footstep_sounds = Array[String]([])
+sprint_sounds = Array[String]([])
+unique_type_id = -2
+health = Array[float]([1.0])
+custom_spawn = true
+custom_camera = false
+custom_shader = ""
+class_color = Color(0, 0, 0.498039, 0.752941)
+enable_inventory = false
+can_move = false
