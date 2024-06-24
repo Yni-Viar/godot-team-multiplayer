@@ -7,8 +7,6 @@ class_name FacilityManager
 var local_nickname: String
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var env: WorldEnvironment
-## Player scene, that will become a player afterwards
-var player_scene: CharacterBody3D
 ## Path to world environment
 @export var environment_path: String
 ## Level data (contains list of all classes, items, e.t.c)
@@ -20,7 +18,7 @@ var player_scene: CharacterBody3D
 ## Round start check.
 @export var is_round_started: bool
 ## Player scene, that will become a player afterwards
-@export var player_prefab_path: String
+@export var player_prefab: PackedScene
 ## List of the players
 @export var players_list: Array[int] = []
 # Player tickets
@@ -80,15 +78,17 @@ func begin_game():
 	is_round_started = true
 	for player in players:
 		if player is PlayerScript:
-			rpc_id(int(str(player.name)), "set_player_class", str(player.name), 1, "Round start", false)
+			rpc_id(player.name.to_int(), "set_player_class", str(player.name), 1, "Round start", false)
 			i += 1
 
 ## Adds player to server.
 func add_player(id: int):
-	player_scene = load(player_prefab_path).instantiate()
+	## Player scene, that will become a player afterwards
+	var player_scene: CharacterBody3D
+	player_scene = player_prefab.instantiate()
 	player_scene.name = str(id)
 	add_child(player_scene, true)
-	players_list.append(int(str(player_scene.name)))
+	players_list.append(player_scene.name.to_int())
 	if is_round_started:
 		post_round_start(players_list, id)
 	print("Player " + str(id) + " has joined the server!")
@@ -142,11 +142,11 @@ func set_player_class_public(player_name: String, name_of_class: int):
 
 ## Recall player classes for player, which got connected to ongoing round.
 func post_round_start(players, target):
-	rpc_id(target, "set_player_class", str(player_scene.name), 0, "Post-roundstart arrival", false)
+	rpc_id(target, "set_player_class", str(multiplayer.get_unique_id()), 0, "Post-roundstart arrival", false)
 	for player in players:
-		if player != player_scene.name:
-			rpc_id(target, "set_player_class", str(player), get_node(player).class_key, "Previous player", true)
-	rpc("clean_ragdolls")
+		if str(player) != str(multiplayer.get_unique_id()):
+			rpc_id(target, "set_player_class", str(player), get_node(str(player)).player_class_key, "Previous player", true)
+	#rpc("clean_ragdolls")
 
 ## Loads the models of a player.
 func load_models(player_name: String, class_id: int):
@@ -183,4 +183,3 @@ func set_background_music(to: String):
 		$BackgroundMusic.playing = true
 		$AnimationPlayer.play_backwards("music_change")
 		current_ambient = to
-

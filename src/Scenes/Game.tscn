@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://mu7j26by23js"]
+[gd_scene load_steps=27 format=3 uid="uid://mu7j26by23js"]
 
 [ext_resource type="Script" path="res://Scripts/Multiplayer/FacilityManager.gd" id="1_crbgh"]
 [ext_resource type="Resource" uid="uid://dexygxjm8ki08" path="res://Scripts/GameData/GameData.tres" id="2_m6y5b"]
+[ext_resource type="PackedScene" uid="uid://cu440emlhve1m" path="res://FPSController/PlayerScene.tscn" id="3_lx2qp"]
 [ext_resource type="FontFile" uid="uid://opo2t8tyqcfa" path="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf" id="5_strxu"]
 [ext_resource type="Environment" uid="uid://cpjkvy5s2l8ae" path="res://DefaultGraphics.tres" id="5_u1dtw"]
 [ext_resource type="Texture2D" uid="uid://bmw4fxmnmwhov" path="res://Assets/HUD/arrow.png" id="7_bwdaw"]
@@ -134,33 +135,12 @@ _data = {
 }
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_pw38j"]
-properties/0/path = NodePath("MapGenLcz:seed")
+properties/0/path = NodePath(".:players_list")
 properties/0/spawn = true
 properties/0/replication_mode = 2
-properties/1/path = NodePath("MapGenHcz:seed")
+properties/1/path = NodePath(".:is_round_started")
 properties/1/spawn = true
-properties/1/replication_mode = 2
-properties/2/path = NodePath("MapGenRz:seed")
-properties/2/spawn = true
-properties/2/replication_mode = 2
-properties/3/path = NodePath(".:playersList")
-properties/3/spawn = true
-properties/3/replication_mode = 2
-properties/4/path = NodePath(".:isRoundStarted")
-properties/4/spawn = true
-properties/4/replication_mode = 1
-properties/5/path = NodePath(".:tickets")
-properties/5/spawn = true
-properties/5/replication_mode = 2
-properties/6/path = NodePath(".:targets")
-properties/6/spawn = true
-properties/6/replication_mode = 2
-properties/7/path = NodePath(".:maxSpawnableObjects")
-properties/7/spawn = true
-properties/7/replication_mode = 2
-properties/8/path = NodePath(".:omegaWarheadKeycode")
-properties/8/spawn = true
-properties/8/replication_mode = 2
+properties/1/replication_mode = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7svji"]
 size = Vector3(2508.41, 33.7658, 1977.69)
@@ -169,7 +149,7 @@ size = Vector3(2508.41, 33.7658, 1977.69)
 script = ExtResource("1_crbgh")
 game_data = ExtResource("2_m6y5b")
 music_to_play = Array[String](["res://Sounds/Music/Zen.ogg"])
-player_prefab_path = "res://FPSController/PlayerScene.tscn"
+player_prefab = ExtResource("3_lx2qp")
 
 [node name="PlayerUI" type="Control" parent="."]
 layout_mode = 3

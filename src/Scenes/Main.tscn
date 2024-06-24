@@ -20,5 +20,6 @@ visible = false
 visible = false
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/Game.tscn")
 spawn_path = NodePath("..")
 spawn_limit = 1

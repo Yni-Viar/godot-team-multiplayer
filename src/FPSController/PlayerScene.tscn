@@ -39,6 +39,9 @@ properties/4/replication_mode = 2
 properties/5/path = NodePath(".:current_health")
 properties/5/spawn = true
 properties/5/replication_mode = 2
+properties/6/path = NodePath("PlayerHead:rotation")
+properties/6/spawn = true
+properties/6/replication_mode = 1
 
 [sub_resource type="Animation" id="Animation_i7x7w"]
 resource_name = "Walk"
@@ -114,10 +117,12 @@ shape = SubResource("1")
 [node name="WalkSounds" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.951681, 0)
 max_distance = 12.0
+bus = &"Sound"
 
 [node name="InteractSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.783644, 0)
 max_distance = 2.3
+bus = &"Sound"
 
 [node name="PlayerSync" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_6h10r")

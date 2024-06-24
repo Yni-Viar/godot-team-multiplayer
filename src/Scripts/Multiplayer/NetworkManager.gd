@@ -18,7 +18,7 @@ var max_objects: int
 ## Need for networking
 var peer: ENetMultiplayerPeer
 ## Scene file path
-var scene_to_load: String = ""
+var scene_to_load: String = "res://Scenes/Game.tscn"
 ## need for loading screen
 var loading: bool = false
 ## Config
@@ -44,19 +44,21 @@ func _enter_tree():
 func _process(delta):
 	if loading:
 		var progress: Array
-		var status = ResourceLoader.load_threaded_get_status(get_gamemode(), progress)
+		var status = ResourceLoader.load_threaded_get_status(scene_to_load, progress)
 		match status:
 			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 				get_tree().root.get_node("Main/LoadingScreen/MainPanel/ProgressBar").value = progress[0] * 100
 			ResourceLoader.THREAD_LOAD_LOADED:
 				get_tree().root.get_node("Main/LoadingScreen/MainPanel/ProgressBar").value = 100
-				prepare_level(ResourceLoader.load_threaded_get(get_gamemode()))
+				prepare_level(ResourceLoader.load_threaded_get(scene_to_load))
+			ResourceLoader.THREAD_LOAD_FAILED:
+				printerr("Could not load...")
 ## General host method.
 func host():
 	peer = ENetMultiplayerPeer.new()
 	peer.create_server(port, max_players)
 	multiplayer.multiplayer_peer = peer
-	load_game(get_gamemode())
+	load_game(scene_to_load)
 	get_tree().root.get_node("Main/CanvasLayer/MainMenu").hide()
 ## General join method.
 func join():
@@ -66,7 +68,6 @@ func join():
 	multiplayer.connected_to_server.connect(connected_to_server)
 	multiplayer.connection_failed.connect(connection_failed)
 	multiplayer.server_disconnected.connect(server_disconnected)
-	load_game(get_gamemode())
 	get_tree().root.get_node("Main/CanvasLayer/MainMenu").hide()
 
 ## Loads the game server-side.
@@ -88,8 +89,9 @@ func prepare_level(scene: PackedScene):
 		for node in get_node("Game").get_children():
 			get_node("Game").remove_child(node)
 			node.queue_free()
+		get_node("Game").queue_free()
 	loading = false
-	add_child(scene.instantiate())
+	add_child(scene.instantiate(), true)
 	get_tree().root.get_node("Main/LoadingScreen/").visible = false
 
 ## Emitted when successfully connected to server.
@@ -150,5 +152,5 @@ func set_data():
 		max_objects = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[2])
 		game_mode = config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[3]
 ## Gets gamemode
-func get_gamemode() -> String:
-	return "res://Scenes/Game.tscn"
+#func get_gamemode() -> String:
+	#return "res://Scenes/Game.tscn"

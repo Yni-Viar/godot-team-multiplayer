@@ -57,7 +57,7 @@ var is_walking: bool = false
 var observed_object = "" 
 
 func _enter_tree():
-	set_multiplayer_authority(int(str(name)))
+	set_multiplayer_authority(name.to_int())
 
 func _ready():
 	if multiplayer.is_server():
@@ -103,7 +103,7 @@ func on_start():
 	pass
 
 func _input(event):
-	if event is InputEventMouseMotion && !Settings.touchscreen:
+	if event is InputEventMouseMotion && !Settings.touchscreen && is_local_authority():
 		rotate_y(-event.relative.x * Settings.mouse_sensitivity * 0.05)
 		player_head.rotate_x(clamp(-event.relative.y * Settings.mouse_sensitivity * 0.05, -90, 90))
 		
@@ -119,12 +119,11 @@ func _input(event):
 	if Input.is_action_just_pressed("mode_kinematic"):
 		get_parent().get_node("PlayerUI").visible = !get_parent().get_node("PlayerUI").visible
 
-
+func is_local_authority() -> bool:
+	return $PlayerSync.get_multiplayer_authority() == multiplayer.get_unique_id()
 
 func _physics_process(delta):
-	if is_multiplayer_authority():
-		if Settings.touchscreen:
-			rotate_player_with_touchscreen()
+	if is_local_authority():
 		
 		if is_on_floor():
 			gravity_vector = Vector3.ZERO
@@ -161,14 +160,6 @@ func _physics_process(delta):
 		get_parent().get_node("PlayerUI/HealthBar").value = current_health[0]
 	set_up_direction(Vector3.UP)
 	move_and_slide()
-## Rotates player with touchscreen (if available)
-func rotate_player_with_touchscreen():
-	rotate_y($"TouchUI/Virtual joystick right".output.x * Settings.mouse_sensitivity * 0.5)
-	player_head.rotate_x(clamp($"TouchUI/Virtual joystick right".output.y * Settings.mouse_sensitivity * 0.5, -90, 90))
-	
-	var camera_rot = player_head.rotation_degrees
-	camera_rot.x = clamp(player_head.rotation_degrees.x, -85, 85)
-	player_head.rotation_degrees = camera_rot
 
 ## Used for item holding
 @rpc("any_peer", "call_local")
