@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://7a1tufrh27jq"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bor62lcl6pmdb"]
 
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_tyjnh"]
 resource_name = "PitchShift"

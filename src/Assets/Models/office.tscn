@@ -443,12 +443,6 @@ transform = Transform3D(-0.934652, 0, -0.355564, 0, 1, 0, 0.355564, 0, -0.934652
 [node name="laptop" parent="." instance=ExtResource("11_w0uok")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 3.82387, 1.83942, 0.946501)
 
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41269, -6.96949)
-text = "Coming to old PCs (and maybe Android)
- when Godot 4.3 releases!"
-font_size = 64
-
 [node name="office-desk-with-drawers2" parent="." instance=ExtResource("9_jxins")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64847, 0.582184, -2.30128)
 

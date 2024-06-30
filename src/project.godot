@@ -275,6 +275,8 @@ locale/translations=PackedStringArray("res://Translations/mainmenu.en.translatio
 [rendering]
 
 occlusion_culling/bvh_build_quality=1
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 occlusion_culling/occlusion_rays_per_thread=256
 global_illumination/sdfgi/frames_to_update_lights=3
 environment/defaults/default_environment="res://DefaultGraphics.tres"
