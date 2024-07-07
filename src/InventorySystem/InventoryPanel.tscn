@@ -1,9 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://de8sgghqvldw3"]
 
 [ext_resource type="Script" path="res://InventorySystem/InventoryManagement.gd" id="1_yykdm"]
-[ext_resource type="Texture2D" uid="uid://ccs40bogcipra" path="res://InventorySystem/InventoryItemLarge.png" id="3_uyubu"]
 [ext_resource type="Script" path="res://InventorySystem/InventoryDock.gd" id="4_2xcnr"]
 [ext_resource type="Script" path="res://InventorySystem/InventoryPanel.gd" id="4_ss8mb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6c3xk"]
+bg_color = Color(0, 0, 0, 0.752941)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -22,7 +32,7 @@ mouse_filter = 2
 script = ExtResource("1_yykdm")
 tile_size = Vector2(96, 96)
 
-[node name="InventoryPanel" type="TextureRect" parent="."]
+[node name="InventoryPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -35,7 +45,7 @@ offset_right = 576.0
 offset_bottom = 287.76
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_uyubu")
+theme_override_styles/panel = SubResource("StyleBoxFlat_6c3xk")
 script = ExtResource("4_ss8mb")
 
 [node name="DockPanel" type="ColorRect" parent="."]

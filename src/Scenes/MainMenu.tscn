@@ -424,10 +424,8 @@ bbcode_enabled = true
 text = "[i]Models[/i]
 
 - Charlotte - by Yni, made with MPFB2
-- SCP-173 model - Aruspice (model, textures), Shakles (rig, animation), PixelPuffin (concept art) (license - CC-BY-SA 3.0)
+- PDA - Model and textures by Shadowscale (license - CC-BY-SA 3.0)
 - Parts of close icon - by Microsoft Corporation. (license - CC-BY 4.0)
-- Sci fi shotgun - made by Ed Eien No Janed, license CC-BY
-- Bossfight level, Electrobun boss, Elevator, Cable car models are made by Yni. License CC-BY.
 "
 fit_content = true
 

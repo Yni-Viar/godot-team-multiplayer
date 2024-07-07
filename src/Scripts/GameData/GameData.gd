@@ -15,7 +15,8 @@ class_name GameData
 # Make sure that every parameter has a default value.
 # Otherwise, there will be problems with creating and editing
 # your resource via the inspector.
-func _init(p_classes: Array[BaseClass] = [], p_map_objects: Array[PackedScene] = [], p_npcs: Array[PackedScene] = []):
+func _init(p_classes: Array[BaseClass] = [], p_items: Array[Item] = [], p_map_objects: Array[PackedScene] = [], p_npcs: Array[PackedScene] = []):
 	classes = p_classes
+	items = p_items
 	map_objects = p_map_objects
 	npcs = p_npcs

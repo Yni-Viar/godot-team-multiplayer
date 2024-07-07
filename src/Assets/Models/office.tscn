@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://2828a7yd1ya4" path="res://Assets/Models/armchair.tscn" id="10_uus8q"]
 [ext_resource type="PackedScene" uid="uid://bsv4bn1kgu5pm" path="res://Assets/Models/laptop.tscn" id="11_w0uok"]
 [ext_resource type="PackedScene" uid="uid://tc0yloosr1y4" path="res://Assets/Models/Sofa.tscn" id="13_y0yqx"]
-[ext_resource type="PackedScene" uid="uid://q7sgr1j7yydg" path="res://InventorySystem/Items/Pickup/tv.tscn" id="14_xinos"]
+[ext_resource type="PackedScene" uid="uid://q7sgr1j7yydg" path="res://InventorySystem/Items/Pickup/pda.tscn" id="14_xinos"]
 [ext_resource type="PackedScene" uid="uid://bvpq7p8vsx8ur" path="res://Assets/NPC/vacuum_cleaner.tscn" id="15_udqd7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ril6"]

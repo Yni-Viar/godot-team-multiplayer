@@ -49,10 +49,8 @@
 ## Assets
 ### Models
 - Charlotte - by Yni, made with MPFB2
-- SCP-173 model - Aruspice (model, textures), Shakles (rig, animation), PixelPuffin (concept art) (license - CC-BY-SA 3.0)
+- PDA - Model and textures by Shadowscale (license - CC-BY-SA 3.0)
 - [Parts of close icon](/src/UI/close.png) - by Microsoft Corporation. (license - CC-BY 4.0)
-- Sci fi shotgun - made by Ed Eien No Janed, license CC-BY
-- Bossfight level, Electrobun boss, Elevator, Cable car models are made by Yni. License CC-BY.
 
 ### Sounds and music
 - Robot vacuum cleaner.ogg by Eelke -- https://freesound.org/s/383372/ -- License: Attribution 4.0

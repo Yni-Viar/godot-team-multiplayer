@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://djlq02i4dkpaw"]
 
 [ext_resource type="Script" path="res://InventorySystem/Items/Item.gd" id="1_ofsag"]
-[ext_resource type="Texture2D" uid="uid://c3hhswb03rlju" path="res://InventorySystem/Items/Res/SampleItem.png" id="2_5hra2"]
+[ext_resource type="Texture2D" uid="uid://bdwt8hp2q1v87" path="res://InventorySystem/Items/Res/PDA.png" id="2_p0xsf"]
 
 [resource]
 script = ExtResource("1_ofsag")
 id = 0
-name = "TV"
-texture = ExtResource("2_5hra2")
+name = "SCP PDA"
+texture = ExtResource("2_p0xsf")
 size = Vector2i(1, 1)
-pickable_path = "res://InventorySystem/Items/Pickup/tv.tscn"
+pickable_path = "res://InventorySystem/Items/Pickup/pda.tscn"
 pickup_sound_path = "res://Sounds/Interact/impactGeneric_light_000.ogg"
-first_person_prefab_path = "res://InventorySystem/Items/FPPrefab/tv.tscn"
+first_person_prefab_path = "res://InventorySystem/Items/FPPrefab/pda.tscn"
 one_time_use = false
 upgrade_rough = Array[int]([])
 upgrade_coarse = Array[int]([])
