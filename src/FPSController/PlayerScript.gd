@@ -104,8 +104,8 @@ func on_start():
 
 func _input(event):
 	if event is InputEventMouseMotion && !Settings.touchscreen && is_local_authority():
-		rotate_y(-event.relative.x * Settings.mouse_sensitivity * 0.05)
-		player_head.rotate_x(clamp(-event.relative.y * Settings.mouse_sensitivity * 0.05, -90, 90))
+		rotate_y(-event.relative.x * Settings.setting_res.mouse_sensitivity * 0.05)
+		player_head.rotate_x(clamp(-event.relative.y * Settings.setting_res.mouse_sensitivity * 0.05, -90, 90))
 		
 		var camera_rot = player_head.rotation_degrees
 		camera_rot.x = clamp(player_head.rotation_degrees.x, -85, 85)
@@ -256,4 +256,3 @@ func update_class_ui(color: int):
 	get_parent().get_node("PlayerUI/ClassInfo").text = player_class_name
 	get_parent().get_node("PlayerUI/ClassDescription").text = player_class_description
 	get_parent().get_node("PlayerUI/AnimationPlayer").play("forceclass")
-

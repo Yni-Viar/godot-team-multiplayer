@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SettingsResource" load_steps=2 format=3 uid="uid://cnphnf33dulky"]
+
+[ext_resource type="Script" path="res://Scripts/SettingsResource/SettingsResource.gd" id="1_sq76f"]
+
+[resource]
+script = ExtResource("1_sq76f")
+available_languages = Array[String](["en", "ru"])
+voxel_gi = false
+ssao = false
+ssil = false
+ssr = false
+fog = false
+music = 1.0
+sound = 1.0
+fullscreen = true
+mouse_sensitivity = 0.05
+window_size = Array[Vector2i]([])
+ui_language = 0
+glow = true
+ui_window_size = 0
+vsync = true
+reflection_probes = true
+enable_light_shadows = false

@@ -96,7 +96,7 @@ func prepare_level(scene: PackedScene):
 
 ## Emitted when successfully connected to server.
 func connected_to_server():
-	rpc_id(1, "get_version", Globals.data_compatibility)
+	rpc_id(1, "get_version", Settings.DATA_COMPATIBILITY)
 	print("Connected to the server!")
 
 ## Emitted when connection is failed.
@@ -135,22 +135,22 @@ func kick():
 ## Checks, if the version of client and server is equal.
 @rpc("any_peer")
 func get_version(compatible_version: String):
-	if compatible_version != Globals.data_compatibility:
+	if compatible_version != Settings.DATA_COMPATIBILITY:
 		rpc_id(multiplayer.get_remote_sender_id(), "kick")
 ## Sets server config.
 func set_data():
 	var config: IniParser = IniParser.new()
-	if FileAccess.file_exists("user://serverconfig_" + Globals.data_compatibility + ".ini"):
-		port = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[0])
-		max_players = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[1])
-		max_objects = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[2])
-		game_mode = config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[3]
+	if FileAccess.file_exists("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini"):
+		port = int(config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[0])
+		max_players = int(config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[1])
+		max_objects = int(config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[2])
+		game_mode = config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[3]
 	else:
-		config.save_ini("ServerConfig", config_values, config_defaults, "user://serverconfig_" + Globals.data_compatibility + ".ini")
-		port = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[0])
-		max_players = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[1])
-		max_objects = int(config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[2])
-		game_mode = config.load_ini("user://serverconfig_" + Globals.data_compatibility + ".ini", "ServerConfig", config_values)[3]
+		config.save_ini("ServerConfig", config_values, config_defaults, "user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini")
+		port = int(config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[0])
+		max_players = int(config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[1])
+		max_objects = int(config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[2])
+		game_mode = config.load_ini("user://serverconfig_" + Settings.DATA_COMPATIBILITY + ".ini", "ServerConfig", config_values)[3]
 ## Gets gamemode
 #func get_gamemode() -> String:
 	#return "res://Scenes/Game.tscn"

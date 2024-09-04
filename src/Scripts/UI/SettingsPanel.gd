@@ -1,115 +1,101 @@
 extends Panel
 
-## Settings UI. Seyts settings in main menu.
-## Made by Yni, licensed under CC0.
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ScrollContainer/VBoxContainer/DynamicGISet.button_pressed = Settings.dynamic_gi
-	$ScrollContainer/VBoxContainer/SSAOSet.button_pressed = Settings.ssao
-	$ScrollContainer/VBoxContainer/SSILSet.button_pressed = Settings.ssil
-	$ScrollContainer/VBoxContainer/SSRSet.button_pressed = Settings.ssr
-	#$ScrollContainer/VBoxContainer/FogSet.button_pressed = Settings.fog
-	$ScrollContainer/VBoxContainer/FullscreenSet.button_pressed = Settings.fullscreen
-	$ScrollContainer/VBoxContainer/MouseSensSet.value = Settings.mouse_sensitivity
-	$ScrollContainer/VBoxContainer/MusicSet.value = Settings.music
-	$ScrollContainer/VBoxContainer/SoundSet.value = Settings.sound
-	$ScrollContainer/VBoxContainer/GlowSet.button_pressed = Settings.glow
+	#var ini: IniParser = IniParser.new()
+	#var result: Array = ini.load_ini("user://settings.ini", "Settings", Settings.available_settings)
+	for v in Settings.window_size:
+		$ScrollContainer/HBoxContainer/Page1/WindowSizeSet.add_item(str(v.x) + "x" + str(v.y))
+	
+	$ScrollContainer/HBoxContainer/Page1/VoxelGISet.button_pressed = Settings.setting_res.dynamic_gi
+	$ScrollContainer/HBoxContainer/Page1/SSAOSet.button_pressed = Settings.setting_res.ssao
+	$ScrollContainer/HBoxContainer/Page1/SSILSet.button_pressed = Settings.setting_res.ssil
+	$ScrollContainer/HBoxContainer/Page1/SSRSet.button_pressed = Settings.setting_res.ssr
+	$ScrollContainer/HBoxContainer/Page1/FogSet.button_pressed = Settings.setting_res.fog
+	$ScrollContainer/HBoxContainer/Page2/MusicSet.value = Settings.setting_res.music
+	$ScrollContainer/HBoxContainer/Page2/SoundSet.value = Settings.setting_res.sound
+	$ScrollContainer/HBoxContainer/Page1/FullscreenSet.button_pressed = Settings.setting_res.fullscreen
+	$ScrollContainer/HBoxContainer/Page2/MouseSensSet.value = Settings.setting_res.mouse_sensitivity
+	# 9 is Window Size in pixels
+	$ScrollContainer/HBoxContainer/Page1/LanguageSet.selected = Settings.setting_res.ui_language
+	$ScrollContainer/HBoxContainer/Page1/GlowSet.button_pressed = Settings.setting_res.glow
+	
+	$ScrollContainer/HBoxContainer/Page1/WindowSizeSet.selected = Settings.setting_res.ui_window_size
 	#$ScrollContainer/VBoxContainer/GraphicDeviceSet.selected = Settings.renderer
 	graphic_device_check()
 
-func save_current_Settings():
-	var ini: IniParser = IniParser.new()
-	ini.save_ini("Settings", ["DynamicGi", "Ssao", "Ssil", "Ssr", #"Fog",
-	"Music", "Sound", "Fullscreen", "MouseSensitivity",
-	"WindowSize", "Language", "Glow"], [Settings.dynamic_gi, Settings.ssao, Settings.ssil, Settings.ssr, #Settings.fog,
-	Settings.music, Settings.sound, Settings.fullscreen, Settings.mouse_sensitivity, Settings.window_size,
-	Settings.language, Settings.glow], "user://Settings.ini")
-
 func _on_language_set_item_selected(index):
-	TranslationServer.set_locale(Settings.available_languages[index])
-	Settings.language = Settings.available_languages[index]
-	save_current_Settings()
+	TranslationServer.set_locale(Settings.setting_res.available_languages[index])
+	Settings.setting_res.language = Settings.setting_res.available_languages[index]
 
 
 func _on_window_size_set_item_selected(index):
-	match index:
-		0:
-			Settings.window_size = Vector2i(1920, 1080)
-		1:
-			Settings.window_size = Vector2i(1600, 900)
-		2:
-			Settings.window_size = Vector2i(1366, 768)
-		3:
-			Settings.window_size = Vector2i(1280, 720)
-		4:
-			Settings.window_size = Vector2i(1024, 768)
-		5:
-			Settings.window_size = Vector2i(800, 600)
-	get_window().size = Settings.window_size
-	save_current_Settings()
+	Settings.setting_res.ui_window_size = index
+	get_window().size = Settings.window_size[Settings.setting_res.ui_window_size]
+	#Settings.save_setting("window_size", Settings.window_size)
 
 
 func _on_fullscreen_set_toggled(toggled_on):
 	if toggled_on:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		Settings.fullscreen = true
+		if !Settings.first_start:
+			# Override Godot bug.
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			Settings.setting_res.fullscreen = true
+		
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		Settings.fullscreen = false
-	save_current_Settings()
-
-func _on_dynamic_gi_set_toggled(toggled_on):
-	if toggled_on:
-		Settings.dynamic_gi = true
-	else:
-		Settings.dynamic_gi = false
-	save_current_Settings()
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		Settings.setting_res.fullscreen = false
+	#Settings.save_setting("fullscreen", Settings.fullscreen)
 
 
 func _on_ssao_set_toggled(toggled_on):
 	if toggled_on:
-		Settings.ssao = true
+		Settings.setting_res.ssao = true
 	else:
-		Settings.ssao = false
-	save_current_Settings()
+		Settings.setting_res.ssao = false
+	
 
 
 func _on_ssil_set_toggled(toggled_on):
 	if toggled_on:
-		Settings.ssil = true
+		Settings.setting_res.ssil = true
 	else:
-		Settings.ssil = false
-	save_current_Settings()
+		Settings.setting_res.ssil = false
+	#Settings.save_setting("ssil", Settings.ssil)
 
 
 func _on_ssr_set_toggled(toggled_on):
 	if toggled_on:
-		Settings.ssr = true
+		Settings.setting_res.ssr = true
 	else:
-		Settings.ssr = false
-	save_current_Settings()
+		Settings.setting_res.ssr = false
+	#Settings.save_setting("Ssr", Settings.ssr)
 
 
 func _on_music_set_drag_ended(value_changed):
 	if value_changed:
-		Settings.music = $ScrollContainer/VBoxContainer/MusicSet.value
+		Settings.setting_res.music = $ScrollContainer/VBoxContainer/MusicSet.value
 		audio_Settings(1, Settings.music)
-		save_current_Settings()
+		#Settings.save_setting("music", Settings.music)
 
 
 func _on_sound_set_drag_ended(value_changed):
 	if value_changed:
-		Settings.sound = $ScrollContainer/VBoxContainer/SoundSet.value
-		audio_Settings(0, Settings.music)
-		save_current_Settings()
+		Settings.setting_res.sound = $ScrollContainer/VBoxContainer/SoundSet.value
+		audio_Settings(0, Settings.sound)
+		#Settings.save_setting("sound", Settings.sound)
 		$SoundTest.play()
 
 
 func _on_mouse_sens_set_drag_ended(value_changed):
 	if value_changed:
-		Settings.mouse_sensitivity = $ScrollContainer/VBoxContainer/MouseSensSet.value
-		save_current_Settings()
+		Settings.setting_res.mouse_sensitivity = $ScrollContainer/VBoxContainer/MouseSensSet.value
+		#Settings.save_setting("mouse_sensitivity", Settings.mouse_sensitivity)
 
 ## Sets the audio bus
 func audio_Settings(bus: int, val: float):
@@ -121,36 +107,82 @@ func audio_Settings(bus: int, val: float):
 
 
 func _on_back_pressed():
+	Settings.save_resource(Settings.setting_res)
 	get_parent().hide()
 
 
 func _on_glow_set_toggled(toggled_on):
 	if toggled_on:
-		Settings.glow = true
+		Settings.setting_res.glow = true
 	else:
-		Settings.glow = false
-	save_current_Settings()
+		Settings.setting_res.glow = false
+	#Settings.save_setting("glow", Settings.fullscreen)
 
 func graphic_device_check():
-	if ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
-		$ScrollContainer/VBoxContainer/DynamicGISet.button_pressed = false
-		$ScrollContainer/VBoxContainer/SSAOSet.button_pressed = false
-		$ScrollContainer/VBoxContainer/SSILSet.button_pressed = false
-		$ScrollContainer/VBoxContainer/SSRSet.button_pressed = false
-		$ScrollContainer/VBoxContainer/DynamicGISet.disabled = true
-		$ScrollContainer/VBoxContainer/SSAOSet.disabled = true
-		$ScrollContainer/VBoxContainer/SSILSet.disabled = true
-		$ScrollContainer/VBoxContainer/SSRSet.disabled = true
-		$ScrollContainer/VBoxContainer/DynamicGISet.hide()
-		$ScrollContainer/VBoxContainer/SSAOSet.hide()
-		$ScrollContainer/VBoxContainer/SSILSet.hide()
-		$ScrollContainer/VBoxContainer/SSRSet.hide()
-	elif ProjectSettings.get_setting("rendering/renderer/rendering_method") == "forward_plus":
-		$ScrollContainer/VBoxContainer/DynamicGISet.disabled = false
-		$ScrollContainer/VBoxContainer/SSAOSet.disabled = false
-		$ScrollContainer/VBoxContainer/SSILSet.disabled = false
-		$ScrollContainer/VBoxContainer/SSRSet.disabled = false
-		$ScrollContainer/VBoxContainer/DynamicGISet.show()
-		$ScrollContainer/VBoxContainer/SSAOSet.show()
-		$ScrollContainer/VBoxContainer/SSILSet.show()
-		$ScrollContainer/VBoxContainer/SSRSet.show()
+	if RenderingServer.get_rendering_device() != null:
+		$ScrollContainer/HBoxContainer/Page1/VoxelGISet.disabled = false
+		$ScrollContainer/HBoxContainer/Page1/SSAOSet.disabled = false
+		$ScrollContainer/HBoxContainer/Page1/SSILSet.disabled = false
+		$ScrollContainer/HBoxContainer/Page1/SSRSet.disabled = false
+		$ScrollContainer/HBoxContainer/Page1/VoxelGISet.show()
+		$ScrollContainer/HBoxContainer/Page1/SSAOSet.show()
+		$ScrollContainer/HBoxContainer/Page1/SSILSet.show()
+		$ScrollContainer/HBoxContainer/Page1/SSRSet.show()
+	else: #ProjectSettings.get_setting("rendering/renderer/rendering_method") == "gl_compatibility":
+		$ScrollContainer/HBoxContainer/Page1/VoxelGISet.button_pressed = false
+		$ScrollContainer/HBoxContainer/Page1/SSAOSet.button_pressed = false
+		$ScrollContainer/HBoxContainer/Page1/SSILSet.button_pressed = false
+		$ScrollContainer/HBoxContainer/Page1/SSRSet.button_pressed = false
+		$ScrollContainer/HBoxContainer/Page1/VoxelGISet.disabled = true
+		$ScrollContainer/HBoxContainer/Page1/SSAOSet.disabled = true
+		$ScrollContainer/HBoxContainer/Page1/SSILSet.disabled = true
+		$ScrollContainer/HBoxContainer/Page1/SSRSet.disabled = true
+		$ScrollContainer/HBoxContainer/Page1/VoxelGISet.hide()
+		$ScrollContainer/HBoxContainer/Page1/SSAOSet.hide()
+		$ScrollContainer/HBoxContainer/Page1/SSILSet.hide()
+		$ScrollContainer/HBoxContainer/Page1/SSRSet.hide()
+
+
+func _on_fog_set_toggled(toggled_on):
+	if toggled_on:
+		Settings.setting_res.fog = true
+	else:
+		Settings.setting_res.fog = false
+	#Settings.save_setting("fog", Settings.fog)
+
+
+func _on_voxel_gi_set_toggled(toggled_on):
+	if toggled_on:
+		Settings.setting_res.voxel_gi = true
+	else:
+		Settings.setting_res.voxel_gi = false
+	#Settings.save_setting("voxel_gi", Settings.voxel_gi)
+
+
+func _on_v_sync_set_toggled(toggled_on):
+	if toggled_on:
+		Settings.setting_res.vsync = true
+	else:
+		Settings.setting_res.vsync = false
+
+
+func _on_reflection_probes_set_toggled(toggled_on):
+	if toggled_on:
+		Settings.setting_res.reflection_probes = true
+	else:
+		Settings.setting_res.reflection_probes = false
+
+
+func _on_light_shadows_toggled(toggled_on):
+	if toggled_on:
+		Settings.setting_res.enable_light_shadows = true
+	else:
+		Settings.setting_res.enable_light_shadows = false
+
+
+func _on_override_resolution_pressed() -> void:
+	var resolution_settings_window = load("res://Assets/SettingsUI/Resolution.tscn").instantiate()
+	add_child(resolution_settings_window)
+
+func add_new_resolution(x: String, y: String):
+	$ScrollContainer/HBoxContainer/Page1/WindowSizeSet.add_item(x + "x" + y)

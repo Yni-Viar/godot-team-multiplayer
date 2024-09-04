@@ -36,11 +36,11 @@ func _ready():
 	else:
 		env.environment = load(environment_path)
 	## Set user settings
-	env.environment.sdfgi_enabled = Settings.dynamic_gi
-	env.environment.ssao_enabled = Settings.ssao
-	env.environment.ssil_enabled = Settings.ssil
-	env.environment.ssr_enabled = Settings.ssr
-	env.environment.glow_enabled = Settings.glow
+	env.environment.sdfgi_enabled = Settings.setting_res.dynamic_gi
+	env.environment.ssao_enabled = Settings.setting_res.ssao
+	env.environment.ssil_enabled = Settings.setting_res.ssil
+	env.environment.ssr_enabled = Settings.setting_res.ssr
+	env.environment.glow_enabled = Settings.setting_res.glow
 	## Set background music through music ID.
 	if music_to_play.size() > 0:
 		set_background_music(music_to_play[0])

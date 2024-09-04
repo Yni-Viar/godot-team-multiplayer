@@ -4,37 +4,33 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioStreamPlayer.playing = true
-	## check stage of development and use.
-	match Globals.current_stage:
-		Globals.Stages.release:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	match Settings.CURRENT_STAGE:
+		Settings.Stages.release:
 			get_node("Background").texture = load("res://Assets/Menu/MainMenuBackground.png")
-		Globals.Stages.testing:
+		Settings.Stages.testing:
 			get_node("Background").texture = load("res://Assets/Menu/MainMenuBackgroundTesting.png")
 		_:
 			get_node("Background").texture = load("res://Assets/Menu/MainMenuBackgroundIndev.png")
 	
-	if OS.get_name() != "Android":
-		get_window().size = Settings.window_size
-		print(get_window().size)
 	
-	AudioServer.set_bus_volume_db(0, linear_to_db(Settings.sound))
-	if Settings.sound < 0.01:
-		AudioServer.set_bus_mute(2, true)
-	elif Settings.sound >= 0.01 && AudioServer.is_bus_mute(0):
-		AudioServer.set_bus_mute(2, false)
+	get_window().size = Settings.window_size[Settings.setting_res.ui_window_size]
 	
-	AudioServer.set_bus_volume_db(1, linear_to_db(Settings.music))
-	if Settings.sound < 0.01: 
+	AudioServer.set_bus_volume_db(0, linear_to_db(Settings.setting_res.sound))
+	if Settings.setting_res.sound < 0.01:
+		AudioServer.set_bus_mute(0, true)
+	elif Settings.setting_res.sound >= 0.01 && AudioServer.is_bus_mute(0):
+		AudioServer.set_bus_mute(0, false)
+	
+	AudioServer.set_bus_volume_db(1, linear_to_db(Settings.setting_res.music))
+	if Settings.setting_res.sound < 0.01:
 		AudioServer.set_bus_mute(1, true)
-	elif Settings.sound >= 0.01 && AudioServer.is_bus_mute(1):
+	elif Settings.setting_res.sound >= 0.01 && AudioServer.is_bus_mute(1):
 		AudioServer.set_bus_mute(1, false)
 	
-	if Settings.fullscreen:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	TranslationServer.set_locale(Settings.language)
+	
+	TranslationServer.set_locale(Settings.setting_res.available_languages[Settings.setting_res.ui_language])
+	Settings.first_start = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

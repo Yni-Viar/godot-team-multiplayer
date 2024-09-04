@@ -3,17 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/UI/SettingsPanel.gd" id="1_4i8vj"]
 [ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="3_2qins"]
 [ext_resource type="Texture2D" uid="uid://cplgika3kesri" path="res://UI/back_button.png" id="3_hs58d"]
-[ext_resource type="FontFile" uid="uid://d2jfq3itdwpdu" path="res://Assets/Fonts/Tektur/Tektur-Bold.ttf" id="3_ri2fr"]
 [ext_resource type="Texture2D" uid="uid://ccnlq2hm3wbsa" path="res://UI/back_button_disabled.png" id="4_ejs0m"]
 [ext_resource type="AudioStream" uid="uid://dv1glc3wxx4ry" path="res://Sounds/Interact/impactMetal_light_001.ogg" id="4_n8hvh"]
+[ext_resource type="FontFile" uid="uid://opo2t8tyqcfa" path="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf" id="5_nce1l"]
 
 [node name="Settings" type="CanvasLayer"]
 
 [node name="SettingsPanel" type="Panel" parent="."]
-anchors_preset = -1
-anchor_right = 0.561
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -0.120117
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4i8vj")
@@ -44,9 +43,11 @@ offset_right = 82.0
 offset_bottom = 31.68
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_ri2fr")
+theme_override_fonts/font = ExtResource("5_nce1l")
 theme_override_font_sizes/font_size = 48
 text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="SettingsPanel"]
 layout_mode = 1
@@ -62,164 +63,167 @@ offset_bottom = 0.159912
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SettingsPanel/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Page1" type="VBoxContainer" parent="SettingsPanel/ScrollContainer/HBoxContainer"]
 custom_minimum_size = Vector2(768, 768)
 layout_mode = 2
 
-[node name="LangLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="LangLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 48
 text = "LANGUAGE"
 
-[node name="LanguageWarning" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="LanguageWarning" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "LANGUAGE_WARNING"
 
-[node name="LanguageSet" type="OptionButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="LanguageSet" type="OptionButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-item_count = 2
 selected = 0
+item_count = 2
 popup/item_0/text = "English"
-popup/item_0/id = 0
 popup/item_1/text = "Russian"
 popup/item_1/id = 1
 
-[node name="GraphicsLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="GraphicsLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "GRAPHICS"
 
-[node name="ResolutionLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="ResolutionLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "RESOLUTION"
 
-[node name="WindowSizeSet" type="OptionButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="WindowSizeSet" type="OptionButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-item_count = 6
-selected = 0
-popup/item_0/text = "1920x1080"
-popup/item_0/id = 0
-popup/item_1/text = "1600x900"
-popup/item_1/id = 1
-popup/item_2/text = "1366x768"
-popup/item_2/id = 2
-popup/item_3/text = "1280x720"
-popup/item_3/id = 3
-popup/item_4/text = "1024x768"
-popup/item_4/id = 4
-popup/item_5/text = "800x600"
-popup/item_5/id = 5
 
-[node name="FullscreenSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="OverrideResolution" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+text = "OVERRIDE_RESOLUTION"
+
+[node name="FullscreenSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
 text = "FULLSCREEN_SET"
 
-[node name="EnvGraphicsLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "GRAPHICS_DEFAULT_ENV"
-
-[node name="DynamicGISet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="VoxelGISet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-disabled = true
-button_pressed = true
-text = "DYNAMIC_GI_SET"
+text = "VOXEL_GI"
 
-[node name="SSAOSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="SSAOSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-disabled = true
-button_pressed = true
 text = "SSAO"
 
-[node name="SSILSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="SSILSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-disabled = true
-button_pressed = true
 text = "SSIL"
 
-[node name="SSRSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="SSRSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-disabled = true
 text = "SSR"
 
-[node name="FogSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="FogSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+text = "FOG_SET"
+
+[node name="GlowSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
 button_pressed = true
-text = "FOG_SET"
+text = "GLOW"
 
-[node name="GlowSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="LightShadows" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 theme_override_font_sizes/font_size = 24
-text = "GLOW"
+text = "LIGHT_SHADOWS"
 
-[node name="SoundsLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "LIGHT_SHADOWS_WARNING"
+
+[node name="ReflectionProbesSet" type="CheckButton" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "REFLECTION_PROBES"
+
+[node name="VSyncSet" type="CheckBox" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page1"]
+layout_mode = 2
+theme = ExtResource("3_2qins")
+theme_override_font_sizes/font_size = 24
+text = "VSYNC"
+
+[node name="Page2" type="VBoxContainer" parent="SettingsPanel/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SoundsLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "SOUNDS"
 
-[node name="MusicLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "MUSIC_SET"
 
-[node name="MusicSet" type="HSlider" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="MusicSet" type="HSlider" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="SoundLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="SoundLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "SOUND_SET"
 
-[node name="SoundSet" type="HSlider" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="SoundSet" type="HSlider" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="InputLabel" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="InputLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "INPUT"
 
-[node name="MouseSens" type="Label" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="MouseSens" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "SENS_SET"
 
-[node name="MouseSensSet" type="HSlider" parent="SettingsPanel/ScrollContainer/VBoxContainer"]
+[node name="MouseSensSet" type="HSlider" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme = ExtResource("3_2qins")
 min_value = 0.001
@@ -249,14 +253,19 @@ when you toggle buttons.
 As for now, \"Save\" button is deprecated."
 
 [connection signal="pressed" from="SettingsPanel/Back" to="SettingsPanel" method="_on_back_pressed"]
-[connection signal="item_selected" from="SettingsPanel/ScrollContainer/VBoxContainer/LanguageSet" to="SettingsPanel" method="_on_language_set_item_selected"]
-[connection signal="item_selected" from="SettingsPanel/ScrollContainer/VBoxContainer/WindowSizeSet" to="SettingsPanel" method="_on_window_size_set_item_selected"]
-[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/FullscreenSet" to="SettingsPanel" method="_on_fullscreen_set_toggled"]
-[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/DynamicGISet" to="SettingsPanel" method="_on_dynamic_gi_set_toggled"]
-[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/SSAOSet" to="SettingsPanel" method="_on_ssao_set_toggled"]
-[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/SSILSet" to="SettingsPanel" method="_on_ssil_set_toggled"]
-[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/SSRSet" to="SettingsPanel" method="_on_ssr_set_toggled"]
-[connection signal="toggled" from="SettingsPanel/ScrollContainer/VBoxContainer/GlowSet" to="SettingsPanel" method="_on_glow_set_toggled"]
-[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/VBoxContainer/MusicSet" to="SettingsPanel" method="_on_music_set_drag_ended"]
-[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/VBoxContainer/SoundSet" to="SettingsPanel" method="_on_sound_set_drag_ended"]
-[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/VBoxContainer/MouseSensSet" to="SettingsPanel" method="_on_mouse_sens_set_drag_ended"]
+[connection signal="item_selected" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/LanguageSet" to="SettingsPanel" method="_on_language_set_item_selected"]
+[connection signal="item_selected" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/WindowSizeSet" to="SettingsPanel" method="_on_window_size_set_item_selected"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/OverrideResolution" to="SettingsPanel" method="_on_override_resolution_pressed"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/FullscreenSet" to="SettingsPanel" method="_on_fullscreen_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/VoxelGISet" to="SettingsPanel" method="_on_voxel_gi_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/SSAOSet" to="SettingsPanel" method="_on_ssao_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/SSILSet" to="SettingsPanel" method="_on_ssil_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/SSRSet" to="SettingsPanel" method="_on_ssr_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/FogSet" to="SettingsPanel" method="_on_fog_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/GlowSet" to="SettingsPanel" method="_on_glow_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/LightShadows" to="SettingsPanel" method="_on_light_shadows_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/ReflectionProbesSet" to="SettingsPanel" method="_on_reflection_probes_set_toggled"]
+[connection signal="toggled" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/VSyncSet" to="SettingsPanel" method="_on_v_sync_set_toggled"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/MusicSet" to="SettingsPanel" method="_on_music_set_drag_ended"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/SoundSet" to="SettingsPanel" method="_on_sound_set_drag_ended"]
+[connection signal="drag_ended" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/MouseSensSet" to="SettingsPanel" method="_on_mouse_sens_set_drag_ended"]

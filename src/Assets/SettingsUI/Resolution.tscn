@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://by4t3g0x2ul0q"]
+
+[ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="1_qoo8c"]
+[ext_resource type="Script" path="res://Scripts/UI/ResolutionWindow.gd" id="2_hyxb0"]
+
+[node name="Resolution" type="Window"]
+title = "NEW_RESOLUTION"
+position = Vector2i(32, 64)
+size = Vector2i(256, 96)
+theme = ExtResource("1_qoo8c")
+script = ExtResource("2_hyxb0")
+
+[node name="Control" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="X" type="LineEdit" parent="Control"]
+layout_mode = 2
+theme = ExtResource("1_qoo8c")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "SIZE_X"
+virtual_keyboard_type = 2
+
+[node name="Y" type="LineEdit" parent="Control"]
+layout_mode = 2
+theme = ExtResource("1_qoo8c")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "SIZE_Y"
+
+[node name="Continue" type="Button" parent="Control"]
+layout_mode = 2
+theme = ExtResource("1_qoo8c")
+theme_override_font_sizes/font_size = 20
+text = "OK"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Control/Continue" to="." method="_on_continue_pressed"]
