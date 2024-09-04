@@ -1,7 +1,7 @@
-# Project "Team Game Platform by Yni"
+# Team multiplayer game template
 ## Info.
 ### ⚠ Currently, this project is poorly maintained.
-A moddable multiplayer game platform. Currently in *alpha* state of development, and is unfinished.
+A multiplayer game example, with *SCP: Secret Laboratory*-like team support. Currently in *alpha* state of development, and is unfinished.
 Previously, this platform was the part of *SCP: Site Online*, but now it is a fully rewritten on GDScript platform to enable mod support.
 
 - Most assets are licensed by [CC0](https://creativecommons.org/public-domain/cc0/) license (and are borrowed from [PolyHaven](https://polyhaven.com/models)).
@@ -14,7 +14,7 @@ Previously, this platform was the part of *SCP: Site Online*, but now it is a fu
 
 ## How to build game.
 
-1. Install Godot Engine 4.2.2
+1. Install Godot Engine 4.3
 2. Open Godot Engine and click Project -> Export.
 3. Install export templates for Godot.
 4. Choose your *desktop* platform and compile it in your folder. 
