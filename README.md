@@ -9,6 +9,7 @@ Previously, this platform was the part of *SCP: Site Online*, but now it is a fu
 - Some assets are licensed by CC-BY or CC-BY-SA licenses.
 
 - The code is licensed by [MIT License](/LICENSE.MIT).
+- If your project is licensed under CC-BY-SA 3.0, CC-BY-SA 4.0 or GPL 3 (e.g. *SCP: Secret Laboratory* remake), the Author grants You permission to relicense the code under mentioned licenses.
 
 - If you want to contribute to the project, please, read CONTRIBUTING.md.
 

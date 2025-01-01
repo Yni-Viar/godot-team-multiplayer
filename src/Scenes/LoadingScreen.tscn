@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cspahtxouvnr2"]
 
-[ext_resource type="FontFile" uid="uid://opo2t8tyqcfa" path="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf" id="1_5m8fq"]
+[ext_resource type="FontFile" uid="uid://cgquehnnas0af" path="res://Assets/Fonts/Home Video/HomeVideo-Regular.otf" id="1_vf60l"]
 [ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="2_v4mot"]
 
 [node name="LoadingScreen" type="CanvasLayer"]
@@ -35,7 +35,7 @@ offset_right = 392.0
 offset_bottom = 96.24
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_5m8fq")
+theme_override_fonts/font = ExtResource("1_vf60l")
 theme_override_font_sizes/font_size = 64
 text = "LOAD_TITLE"
 horizontal_alignment = 1

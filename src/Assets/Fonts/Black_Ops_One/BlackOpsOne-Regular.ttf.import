@@ -2,19 +2,20 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://opo2t8tyqcfa"
-path="res://.godot/imported/Stengazeta-Regular_5.ttf-8c8cec271b3c0e3121956a1e3aabad0c.fontdata"
+uid="uid://c3ixrgxhw4b3o"
+path="res://.godot/imported/BlackOpsOne-Regular.ttf-b03c2d19ec83113c92187c4ed23c7104.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf"
-dest_files=["res://.godot/imported/Stengazeta-Regular_5.ttf-8c8cec271b3c0e3121956a1e3aabad0c.fontdata"]
+source_file="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf"
+dest_files=["res://.godot/imported/BlackOpsOne-Regular.ttf-b03c2d19ec83113c92187c4ed23c7104.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

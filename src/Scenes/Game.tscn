@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://mu7j26by23js"]
+[gd_scene load_steps=28 format=3 uid="uid://mu7j26by23js"]
 
 [ext_resource type="Script" path="res://Scripts/Multiplayer/FacilityManager.gd" id="1_crbgh"]
 [ext_resource type="Resource" uid="uid://dexygxjm8ki08" path="res://Scripts/GameData/GameData.tres" id="2_m6y5b"]
 [ext_resource type="PackedScene" uid="uid://cu440emlhve1m" path="res://FPSController/PlayerScene.tscn" id="3_lx2qp"]
-[ext_resource type="FontFile" uid="uid://opo2t8tyqcfa" path="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf" id="5_strxu"]
 [ext_resource type="Environment" uid="uid://cpjkvy5s2l8ae" path="res://DefaultGraphics.tres" id="5_u1dtw"]
+[ext_resource type="FontFile" uid="uid://cgquehnnas0af" path="res://Assets/Fonts/Home Video/HomeVideo-Regular.otf" id="6_yexbd"]
+[ext_resource type="FontFile" uid="uid://c3ixrgxhw4b3o" path="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="7_51c15"]
 [ext_resource type="Texture2D" uid="uid://bmw4fxmnmwhov" path="res://Assets/HUD/arrow.png" id="7_bwdaw"]
 [ext_resource type="PackedScene" uid="uid://dxk8akb87bv4u" path="res://Assets/Models/startroom.tscn" id="8_1kvjl"]
 [ext_resource type="Script" path="res://Scripts/UI/PlayerUI.gd" id="8_7mmlb"]
@@ -185,20 +186,20 @@ grow_vertical = 2
 
 [node name="Welcome" type="Label" parent="PlayerUI/PreRoundStartPanel/PreRoundStart"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_fonts/font = ExtResource("6_yexbd")
 theme_override_font_sizes/font_size = 32
 text = "The round is starting soon..."
 horizontal_alignment = 1
 
 [node name="Amount" type="Label" parent="PlayerUI/PreRoundStartPanel/PreRoundStart"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_fonts/font = ExtResource("6_yexbd")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 
 [node name="Welcome2" type="Label" parent="PlayerUI/PreRoundStartPanel/PreRoundStart"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_fonts/font = ExtResource("6_yexbd")
 theme_override_font_sizes/font_size = 24
 text = "players connected."
 horizontal_alignment = 1
@@ -212,7 +213,7 @@ offset_left = -960.0
 offset_top = -128.0
 offset_right = 704.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_fonts/font = ExtResource("7_51c15")
 theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -319,7 +320,7 @@ offset_top = 20.0
 offset_right = 80.0
 offset_bottom = 56.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_fonts/font = ExtResource("6_yexbd")
 theme_override_font_sizes/font_size = 32
 text = "Admin panel"
 horizontal_alignment = 1
@@ -413,7 +414,7 @@ offset_top = 20.0
 offset_right = 80.0
 offset_bottom = 56.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("5_strxu")
+theme_override_fonts/font = ExtResource("6_yexbd")
 theme_override_font_sizes/font_size = 32
 text = "Player list"
 horizontal_alignment = 1

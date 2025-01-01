@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cplgika3kesri" path="res://UI/back_button.png" id="3_hs58d"]
 [ext_resource type="Texture2D" uid="uid://ccnlq2hm3wbsa" path="res://UI/back_button_disabled.png" id="4_ejs0m"]
 [ext_resource type="AudioStream" uid="uid://dv1glc3wxx4ry" path="res://Sounds/Interact/impactMetal_light_001.ogg" id="4_n8hvh"]
-[ext_resource type="FontFile" uid="uid://opo2t8tyqcfa" path="res://Assets/Fonts/Stengazeta/Stengazeta-Regular_5.ttf" id="5_nce1l"]
+[ext_resource type="FontFile" uid="uid://cgquehnnas0af" path="res://Assets/Fonts/Home Video/HomeVideo-Regular.otf" id="5_21bls"]
 
 [node name="Settings" type="CanvasLayer"]
 
@@ -43,7 +43,7 @@ offset_right = 82.0
 offset_bottom = 31.68
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_nce1l")
+theme_override_fonts/font = ExtResource("5_21bls")
 theme_override_font_sizes/font_size = 48
 text = "SETTINGS"
 horizontal_alignment = 1
@@ -90,6 +90,7 @@ theme_override_font_sizes/font_size = 24
 selected = 0
 item_count = 2
 popup/item_0/text = "English"
+popup/item_0/id = 0
 popup/item_1/text = "Russian"
 popup/item_1/id = 1
 
@@ -233,24 +234,6 @@ value = 2.0
 
 [node name="SoundTest" type="AudioStreamPlayer" parent="SettingsPanel"]
 stream = ExtResource("4_n8hvh")
-
-[node name="Label" type="Label" parent="SettingsPanel"]
-visible = false
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -311.0
-offset_top = -47.0
-offset_bottom = 54.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Beginning with 0.6.1,
-the settings are auto-saving,
-when you toggle buttons.
-As for now, \"Save\" button is deprecated."
 
 [connection signal="pressed" from="SettingsPanel/Back" to="SettingsPanel" method="_on_back_pressed"]
 [connection signal="item_selected" from="SettingsPanel/ScrollContainer/HBoxContainer/Page1/LanguageSet" to="SettingsPanel" method="_on_language_set_item_selected"]
