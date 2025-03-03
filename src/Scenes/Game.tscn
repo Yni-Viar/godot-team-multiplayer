@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://mu7j26by23js"]
 
-[ext_resource type="Script" path="res://Scripts/Multiplayer/FacilityManager.gd" id="1_crbgh"]
+[ext_resource type="Script" uid="uid://df7po72ubirm8" path="res://Scripts/Multiplayer/FacilityManager.gd" id="1_crbgh"]
 [ext_resource type="Resource" uid="uid://dexygxjm8ki08" path="res://Scripts/GameData/GameData.tres" id="2_m6y5b"]
 [ext_resource type="PackedScene" uid="uid://cu440emlhve1m" path="res://FPSController/PlayerScene.tscn" id="3_lx2qp"]
 [ext_resource type="Environment" uid="uid://cpjkvy5s2l8ae" path="res://DefaultGraphics.tres" id="5_u1dtw"]
@@ -8,16 +8,16 @@
 [ext_resource type="FontFile" uid="uid://c3ixrgxhw4b3o" path="res://Assets/Fonts/Black_Ops_One/BlackOpsOne-Regular.ttf" id="7_51c15"]
 [ext_resource type="Texture2D" uid="uid://bmw4fxmnmwhov" path="res://Assets/HUD/arrow.png" id="7_bwdaw"]
 [ext_resource type="PackedScene" uid="uid://dxk8akb87bv4u" path="res://Assets/Models/startroom.tscn" id="8_1kvjl"]
-[ext_resource type="Script" path="res://Scripts/UI/PlayerUI.gd" id="8_7mmlb"]
+[ext_resource type="Script" uid="uid://ct76a8ibk6ugv" path="res://Scripts/UI/PlayerUI.gd" id="8_7mmlb"]
 [ext_resource type="PackedScene" uid="uid://ct11xlg8m624b" path="res://Assets/Models/office.tscn" id="8_wxtuc"]
 [ext_resource type="Texture2D" uid="uid://di4n3rx3yssbr" path="res://Assets/HUD/healthbar_unfilled.png" id="9_0hc6d"]
 [ext_resource type="Texture2D" uid="uid://bvq1xok1sqfjb" path="res://Assets/HUD/healthbar_filled.png" id="10_itug4"]
 [ext_resource type="FontFile" uid="uid://d2jfq3itdwpdu" path="res://Assets/Fonts/Tektur/Tektur-Bold.ttf" id="11_1xteb"]
-[ext_resource type="Script" path="res://Scripts/Unnecessary/FPSCounter.gd" id="11_vy51m"]
+[ext_resource type="Script" uid="uid://1yjb5m4hg2ui" path="res://Scripts/Unnecessary/FPSCounter.gd" id="11_vy51m"]
 [ext_resource type="FontFile" uid="uid://cimfjaj14234d" path="res://Assets/Fonts/Tektur/Tektur-Medium.ttf" id="12_118v5"]
 [ext_resource type="Texture2D" uid="uid://dj66rmlusn18r" path="res://Assets/HUD/healthbar.png" id="15_5ah0v"]
 [ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="15_g2wd3"]
-[ext_resource type="Script" path="res://Scripts/Unnecessary/GameoverPit.gd" id="19_4u3wc"]
+[ext_resource type="Script" uid="uid://dcc6ffhsciann" path="res://Scripts/Unnecessary/GameoverPit.gd" id="19_4u3wc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4g4w"]
 bg_color = Color(0, 0, 0, 1)
@@ -83,8 +83,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_icbbs"]
 _data = {
-"forceclass": SubResource("Animation_wnm84"),
-"roundend": SubResource("Animation_0y8ye")
+&"forceclass": SubResource("Animation_wnm84"),
+&"roundend": SubResource("Animation_0y8ye")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wvqa"]
@@ -110,7 +110,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y1eqc"]
 _data = {
-"music_change": SubResource("Animation_aegjm")
+&"music_change": SubResource("Animation_aegjm")
 }
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_pw38j"]

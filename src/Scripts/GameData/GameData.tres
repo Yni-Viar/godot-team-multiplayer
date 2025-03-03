@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="GameData" load_steps=6 format=3 uid="uid://dexygxjm8ki08"]
 
-[ext_resource type="Script" path="res://Scripts/GameData/GameData.gd" id="1_3oe34"]
+[ext_resource type="Script" uid="uid://bb30n2rn1qlqn" path="res://Scripts/GameData/GameData.gd" id="1_3oe34"]
 [ext_resource type="Resource" uid="uid://cohe4hksaldgl" path="res://FPSController/PlayerClassResources/Spectator.tres" id="1_q7cy1"]
-[ext_resource type="Script" path="res://FPSController/PlayerClassResources/BaseClass.gd" id="1_ynjxk"]
+[ext_resource type="Script" uid="uid://b3g7n0ffra0ua" path="res://FPSController/PlayerClassResources/BaseClass.gd" id="1_ynjxk"]
 [ext_resource type="Resource" uid="uid://f2kqasrj2c78" path="res://FPSController/PlayerClassResources/Human.tres" id="2_66p5n"]
-[ext_resource type="Script" path="res://InventorySystem/Items/Item.gd" id="4_cojdc"]
+[ext_resource type="Script" uid="uid://cfrhuhp5iwhq0" path="res://InventorySystem/Items/Item.gd" id="4_cojdc"]
 
 [resource]
 script = ExtResource("1_3oe34")

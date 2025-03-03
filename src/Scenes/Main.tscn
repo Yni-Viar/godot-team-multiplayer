@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dudoqqr06mig7"]
 
-[ext_resource type="Script" path="res://Scripts/Multiplayer/NetworkManager.gd" id="1_ftir1"]
+[ext_resource type="Script" uid="uid://8oq2jaudwcq7" path="res://Scripts/Multiplayer/NetworkManager.gd" id="1_ftir1"]
 [ext_resource type="PackedScene" uid="uid://b6010fhhdn46b" path="res://Scenes/MainMenu.tscn" id="2_rsifw"]
 [ext_resource type="PackedScene" uid="uid://o6rnnciwmwvn" path="res://GDsh/InGameConsole.tscn" id="3_4c826"]
 [ext_resource type="PackedScene" uid="uid://cspahtxouvnr2" path="res://Scenes/LoadingScreen.tscn" id="5_vdvwj"]
@@ -20,6 +20,6 @@ visible = false
 visible = false
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Scenes/Game.tscn")
+_spawnable_scenes = PackedStringArray("uid://mu7j26by23js")
 spawn_path = NodePath("..")
 spawn_limit = 1

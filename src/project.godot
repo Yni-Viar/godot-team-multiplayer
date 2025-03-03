@@ -17,7 +17,7 @@ config/tags=PackedStringArray("multiplayer", "team", "template")
 run/main_scene="res://Scenes/Main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="TGPY_Project"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://Assets/intro.png"
 config/icon="res://icon.png"
@@ -32,9 +32,8 @@ Settings="*res://Scripts/Settings.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/resizable=false
-window/size/window_width_override=800
-window/size/window_height_override=480
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

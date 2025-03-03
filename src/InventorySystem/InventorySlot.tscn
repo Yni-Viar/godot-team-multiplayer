@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c625o73wt84tt"]
 
-[ext_resource type="Script" path="res://InventorySystem/InventorySlot.gd" id="1_vhstn"]
+[ext_resource type="Script" uid="uid://djf0oalesa6iq" path="res://InventorySystem/InventorySlot.gd" id="1_vhstn"]
 
 [node name="InventorySlot" type="TextureRect"]
 offset_right = 32.0

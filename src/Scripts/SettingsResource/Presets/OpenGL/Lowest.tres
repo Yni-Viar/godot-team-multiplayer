@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="SettingsResource" load_steps=2 format=3 uid="uid://bdftvlo16o7wt"]
 
-[ext_resource type="Script" path="res://Scripts/SettingsResource/SettingsResource.gd" id="1_y4xtp"]
+[ext_resource type="Script" uid="uid://eccqqglgg3mh" path="res://Scripts/SettingsResource/SettingsResource.gd" id="1_y4xtp"]
 
 [resource]
 script = ExtResource("1_y4xtp")
 available_languages = Array[String](["en", "ru"])
-voxel_gi = false
+dynamic_gi = false
 ssao = false
 ssil = false
 ssr = false
@@ -14,10 +14,10 @@ music = 1.0
 sound = 1.0
 fullscreen = true
 mouse_sensitivity = 0.05
-window_size = Vector2i(1920, 1080)
+window_size = Array[Vector2i]([])
 ui_language = 0
 glow = false
-game_optimizator = 2
 ui_window_size = 0
 vsync = true
 reflection_probes = false
+enable_light_shadows = false

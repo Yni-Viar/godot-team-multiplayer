@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BaseClass" load_steps=2 format=3 uid="uid://cohe4hksaldgl"]
 
-[ext_resource type="Script" path="res://FPSController/PlayerClassResources/BaseClass.gd" id="1_wx0qn"]
+[ext_resource type="Script" uid="uid://b3g7n0ffra0ua" path="res://FPSController/PlayerClassResources/BaseClass.gd" id="1_wx0qn"]
 
 [resource]
 script = ExtResource("1_wx0qn")

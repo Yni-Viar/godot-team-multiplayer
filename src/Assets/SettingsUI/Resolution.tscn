@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by4t3g0x2ul0q"]
 
 [ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="1_qoo8c"]
-[ext_resource type="Script" path="res://Scripts/UI/ResolutionWindow.gd" id="2_hyxb0"]
+[ext_resource type="Script" uid="uid://bffxau5aantcw" path="res://Scripts/UI/ResolutionWindow.gd" id="2_hyxb0"]
 
 [node name="Resolution" type="Window"]
 title = "NEW_RESOLUTION"

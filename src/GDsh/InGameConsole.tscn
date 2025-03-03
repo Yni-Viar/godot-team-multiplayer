@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://o6rnnciwmwvn"]
 
-[ext_resource type="Script" path="res://GDsh/InGameConsole.gd" id="1_ypsq7"]
+[ext_resource type="Script" uid="uid://qcjf8h0gkf4o" path="res://GDsh/InGameConsole.gd" id="1_ypsq7"]
 [ext_resource type="FontFile" uid="uid://c8jcxghj24ekt" path="res://Assets/Fonts/JetBrainsMono/JetBrainsMono-Regular.ttf" id="2_f3q0f"]
 [ext_resource type="FontFile" uid="uid://bljynxe1dbg5a" path="res://Assets/Fonts/JetBrainsMono/JetBrainsMono-SemiBold.ttf" id="3_agdfp"]
 

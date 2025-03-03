@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=3 uid="uid://cu440emlhve1m"]
 
-[ext_resource type="Script" path="res://FPSController/PlayerScript.gd" id="1_rticr"]
-[ext_resource type="Script" path="res://FPSController/Commands.gd" id="2_acwsa"]
-[ext_resource type="Script" path="res://FPSController/PlayerRecoil/Recoil.gd" id="2_hmiop"]
-[ext_resource type="Script" path="res://FPSController/PlayerSync.gd" id="6_rhaos"]
+[ext_resource type="Script" uid="uid://ctg2h0dmkmh6s" path="res://FPSController/PlayerScript.gd" id="1_rticr"]
+[ext_resource type="Script" uid="uid://n45e4hch5ipy" path="res://FPSController/Commands.gd" id="2_acwsa"]
+[ext_resource type="Script" uid="uid://dag8n0k7n5fpq" path="res://FPSController/PlayerRecoil/Recoil.gd" id="2_hmiop"]
+[ext_resource type="Script" uid="uid://dm3fym3byryjr" path="res://FPSController/PlayerSync.gd" id="6_rhaos"]
 [ext_resource type="PackedScene" uid="uid://de8sgghqvldw3" path="res://InventorySystem/InventoryPanel.tscn" id="7_6u7fq"]
 [ext_resource type="Texture2D" uid="uid://cfcxmt02700jh" path="res://Assets/HUD/Touchscreen/click.png" id="8_cdimw"]
 [ext_resource type="Texture2D" uid="uid://cyi13u6n3j6a3" path="res://Assets/HUD/Touchscreen/inventory.png" id="9_qeqd0"]
-[ext_resource type="Script" path="res://Scripts/UI/TouchUIClick.gd" id="9_v1a12"]
+[ext_resource type="Script" uid="uid://cowwjvmybg1vg" path="res://Scripts/UI/TouchUIClick.gd" id="9_v1a12"]
 [ext_resource type="Texture2D" uid="uid://bdw5mkmw3k4md" path="res://Assets/HUD/Touchscreen/rclick.png" id="10_xrjm7"]
-[ext_resource type="Script" path="res://FPSController/TouchBar.gd" id="11_0i2tu"]
+[ext_resource type="Script" uid="uid://dffbtifxk5nup" path="res://FPSController/TouchBar.gd" id="11_0i2tu"]
 [ext_resource type="Texture2D" uid="uid://bh0rnei2u64on" path="res://Assets/HUD/Touchscreen/back.png" id="14_v8nct"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3c6ve"]
@@ -62,7 +62,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uiy40"]
 _data = {
-"Walk": SubResource("Animation_i7x7w")
+&"Walk": SubResource("Animation_i7x7w")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5dgv"]

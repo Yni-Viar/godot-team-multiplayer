@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://de8sgghqvldw3"]
 
-[ext_resource type="Script" path="res://InventorySystem/InventoryManagement.gd" id="1_yykdm"]
-[ext_resource type="Script" path="res://InventorySystem/InventoryDock.gd" id="4_2xcnr"]
-[ext_resource type="Script" path="res://InventorySystem/InventoryPanel.gd" id="4_ss8mb"]
+[ext_resource type="Script" uid="uid://ciqq780ij54tt" path="res://InventorySystem/InventoryManagement.gd" id="1_yykdm"]
+[ext_resource type="Script" uid="uid://ck7kuqhekk0ew" path="res://InventorySystem/InventoryDock.gd" id="4_2xcnr"]
+[ext_resource type="Script" uid="uid://5bueoa6xnbuu" path="res://InventorySystem/InventoryPanel.gd" id="4_ss8mb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6c3xk"]
 bg_color = Color(0, 0, 0, 0.752941)
