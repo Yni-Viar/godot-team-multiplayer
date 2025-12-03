@@ -25,24 +25,57 @@ var window_size: Array[Vector2i] = [Vector2i(1920, 1080), Vector2i(1600, 900), V
 var touchscreen: bool = DisplayServer.is_touchscreen_available()
 
 func _init():
-	setting_res = load_resource()
+	load_resource()
 	# Add custom windows sizes.
 	for v in setting_res.window_size:
 		window_size.append(v)
 
-func load_resource() -> SettingsResource:
-	if ResourceLoader.exists("user://Settings.tres"):
-		return load("user://Settings.tres")
-	else:
-		if RenderingServer.get_rendering_device() != null:
-			var res = load("res://Scripts/SettingsResource/Presets/RD/Medium.tres")
-			save_resource(res)
-			return res
-		else:
-			var res = load("res://Scripts/SettingsResource/Presets/OpenGL/Low.tres")
-			save_resource(res)
-			return res
 
+## Sometimes ago it was a great function. Now it is just a stub, that calls ResourceStorage and loads settings
+func load_resource():
+	if OS.get_name() != "Web":
+		var settings_from_file = ResourceStorage.load_resource("user://Settings.bin", "SettingsResource")
+		if settings_from_file != null:
+			setting_res = settings_from_file
+			set_default_keybinds()
+		else:
+			load_default_settings()
+	else:
+		load_default_settings()
+
+func load_default_settings():
+	#if OS.get_name() != "Web" || OS.get_name() != "Android":
+	var res = load("res://Scripts/SettingsResource/Presets/OpenGL/Low.tres")
+	save_resource(res)
+	setting_res = res
+	set_default_keybinds()
+	#else:
+		#var res = load("res://Scripts/SettingsResource/Presets/OpenGL/Lowest.tres")
+		#save_resource(res)
+		#setting_res = res
+
+## Sometimes ago it was a great function. Now it is just a stub, that calls ResourceStorage and saves settings
 func save_resource(res):
-	ResourceSaver.save(res, "user://Settings.tres")
-	emit_signal("settings_saved")
+	if OS.get_name() != "Web":
+		ResourceStorage.save_resource("user://Settings.bin", res)
+		emit_signal("settings_saved")
+
+func set_default_keybinds():
+	for value in setting_res.keybinds.keys():
+		set_keybind(value, setting_res.keybinds[value][0], setting_res.keybinds[value][1])
+
+func set_keybind(action_name: String, key_type: int, key: int):
+	InputMap.action_erase_events(action_name)
+	match key_type:
+		0:
+			var event: InputEventKey = InputEventKey.new()
+			event.physical_keycode = key as Key
+			InputMap.action_add_event(action_name, event)
+		1:
+			var event: InputEventMouseButton = InputEventMouseButton.new()
+			event.button_index = key as MouseButton
+			InputMap.action_add_event(action_name, event)
+		2:
+			print("Gamepad support is not implemented.")
+	setting_res.keybinds[action_name] = [key_type, key]
+	save_resource(setting_res)

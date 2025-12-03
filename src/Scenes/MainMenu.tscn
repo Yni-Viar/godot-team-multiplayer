@@ -149,11 +149,11 @@ offset_right = 0.0400391
 offset_bottom = -0.211975
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]KNOWN ISSUES:[/b]
 - There may be freezes. Try to restart the game to fix this.
@@ -279,11 +279,11 @@ layout_mode = 2
 [node name="CreditsMain" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]Team Game Sample code is licensed mostly under MIT License (some code is licensed under CC0)[/b]
 
@@ -294,11 +294,11 @@ fit_content = true
 [node name="CreditsMain2" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[color=#84D9FF][i]Contributors:[/i]
 - Yni (Yni Viar, the Creator)[/color]
@@ -310,11 +310,11 @@ fit_content = true
 [node name="CreditsMain3" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]Third-party data credits:[/b]"
 fit_content = true
@@ -322,11 +322,11 @@ fit_content = true
 [node name="CreditsCode" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]Code:[/b]"
 fit_content = true
@@ -334,11 +334,11 @@ fit_content = true
 [node name="CreditsCode2" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[i]First person character (license - The Unlicense)[/i]
 
@@ -353,11 +353,11 @@ fit_content = true
 [node name="CreditsCode3" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[i]Scalable inventory system (license - The Unlicense)[/i]
 
@@ -370,11 +370,11 @@ fit_content = true
 [node name="CreditsCode4" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[i]Debug console (License - The Unlicense)[/i]
 
@@ -386,11 +386,11 @@ fit_content = true
 [node name="CreditsCode10" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[i]Recoil System (MIT License)
 
@@ -402,11 +402,11 @@ fit_content = true
 [node name="CreditsArt" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[b]Assets[/b]"
 fit_content = true
@@ -414,11 +414,11 @@ fit_content = true
 [node name="CreditsArt1" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[i]Models[/i]
 
@@ -431,11 +431,11 @@ fit_content = true
 [node name="CreditsArt2" type="RichTextLabel" parent="CreditsPanel/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(1234, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24
 theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
 bbcode_enabled = true
 text = "[i]Sounds and music[/i]
 - Robot vacuum cleaner.ogg by Eelke -- https://freesound.org/s/383372/ -- License: CC Attribution 4.0

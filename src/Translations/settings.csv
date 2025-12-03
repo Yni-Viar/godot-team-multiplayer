@@ -15,3 +15,14 @@ LANGUAGE_WARNING," ""The in-game text may be not translated if there is no trans
 GLOW,Glow effect
 RENDERING_DEVICE,Graphic driver (restart required)
 RESOLUTION,Screen resolution
+MOVE_FORWARD,Move forward
+MOVE_BACKWARD,Move backward
+MOVE_LEFT,Move left
+MOVE_RIGHT,Move right
+JUMP,Jump
+SPRINT,Sprint
+ATTACK,Attack
+INVENTORY,Inventory
+INVENTORY_SELECT,Inventory: select item
+INVENTORY_REMOVE,Inventory: remove item
+PLAYER_LIST,Player list

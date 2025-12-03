@@ -26,6 +26,7 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 GDsh="*res://GDsh/GDsh.gd"
+ResourceStorage="*res://Scripts/ResourceStorage.gd"
 Settings="*res://Scripts/Settings.gd"
 
 [display]

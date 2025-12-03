@@ -4,20 +4,4 @@
 
 [resource]
 script = ExtResource("1_y4xtp")
-available_languages = Array[String](["en", "ru"])
-dynamic_gi = false
-ssao = false
-ssil = false
-ssr = false
-fog = false
-music = 1.0
-sound = 1.0
-fullscreen = true
-mouse_sensitivity = 0.05
-window_size = Array[Vector2i]([])
-ui_language = 0
-glow = false
-ui_window_size = 0
-vsync = true
 reflection_probes = false
-enable_light_shadows = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjbe75eis8tu6"]
+[gd_scene load_steps=8 format=3 uid="uid://bjbe75eis8tu6"]
 
 [ext_resource type="Script" uid="uid://cyg4mxo46a3p1" path="res://Scripts/UI/SettingsPanel.gd" id="1_4i8vj"]
 [ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="3_2qins"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccnlq2hm3wbsa" path="res://UI/back_button_disabled.png" id="4_ejs0m"]
 [ext_resource type="AudioStream" uid="uid://dv1glc3wxx4ry" path="res://Sounds/Interact/impactMetal_light_001.ogg" id="4_n8hvh"]
 [ext_resource type="FontFile" uid="uid://cgquehnnas0af" path="res://Assets/Fonts/Home Video/HomeVideo-Regular.otf" id="5_21bls"]
+[ext_resource type="Script" uid="uid://cpbnvacin3mn" path="res://Scripts/Unnecessary/KeybindSetter.gd" id="6_ipgag"]
 
 [node name="Settings" type="CanvasLayer"]
 
@@ -185,7 +186,7 @@ text = "VSYNC"
 [node name="Page2" type="VBoxContainer" parent="SettingsPanel/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="SoundsLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
+[node name="SoundsLabel2" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "SOUNDS"
@@ -232,6 +233,107 @@ max_value = 5.0
 step = 0.001
 value = 2.0
 
+[node name="KeybindLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "KEYBINDS"
+
+[node name="GridContainer" type="GridContainer" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2"]
+custom_minimum_size = Vector2(768, 0)
+layout_mode = 2
+columns = 2
+script = ExtResource("6_ipgag")
+
+[node name="MFLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "MOVE_FORWARD"
+
+[node name="MFButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="MBLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "MOVE_BACKWARD"
+
+[node name="MBButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="MLLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "MOVE_LEFT"
+
+[node name="MLButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="MRLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "MOVE_RIGHT"
+
+[node name="MRButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="MJLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "JUMP"
+
+[node name="MJButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="MSLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "SPRINT"
+
+[node name="MSButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="ALabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "ATTACK"
+
+[node name="AButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="HILabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "INVENTORY"
+
+[node name="HIButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="HISLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "INVENTORY_SELECT"
+
+[node name="HISButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="HIRLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "INVENTORY_REMOVE"
+
+[node name="HIRButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
+[node name="PLLabel" type="Label" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+layout_mode = 2
+text = "PLAYER_LIST"
+
+[node name="PLButton" type="Button" parent="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+
 [node name="SoundTest" type="AudioStreamPlayer" parent="SettingsPanel"]
 stream = ExtResource("4_n8hvh")
 
@@ -252,3 +354,14 @@ stream = ExtResource("4_n8hvh")
 [connection signal="drag_ended" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/MusicSet" to="SettingsPanel" method="_on_music_set_drag_ended"]
 [connection signal="drag_ended" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/SoundSet" to="SettingsPanel" method="_on_sound_set_drag_ended"]
 [connection signal="drag_ended" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/MouseSensSet" to="SettingsPanel" method="_on_mouse_sens_set_drag_ended"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/MFButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_mf_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/MBButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_mb_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/MLButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_ml_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/MRButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_mr_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/MJButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_mj_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/MSButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_ms_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/AButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_a_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/HIButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_hi_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/HISButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_his_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/HIRButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_hir_button_pressed"]
+[connection signal="pressed" from="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer/PLButton" to="SettingsPanel/ScrollContainer/HBoxContainer/Page2/GridContainer" method="_on_pl_button_pressed"]
